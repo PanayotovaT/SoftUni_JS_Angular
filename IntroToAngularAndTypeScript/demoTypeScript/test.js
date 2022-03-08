@@ -1,3 +1,3 @@
-var isOpen;
-isOpen = true;
-console.log(isOpen);
+var isOpen1;
+isOpen1 = true;
+console.log(isOpen1);
