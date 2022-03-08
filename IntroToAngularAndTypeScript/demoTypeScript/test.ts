@@ -22,12 +22,18 @@ class Person {
 
     setData(newData: { newName: string, newAge: number}) {
         this.age = newData.newAge;
-        this.name =newData.newName;
+        // this.name =newData.newName;
     }
 }
 
-const alex = new Person('Alex', 3);
-alex.setData({newAge: 4, newName: 'Alexander'});
+let alex = new Person('Alex', 3);
+alex.setData({newAge:5, newName: 'Alexander'});
 
-console.log(alex);
+// console.log(alex);
 
+function identify<T> (arg: T): T {
+    return arg;
+}
+
+let value =1;
+const test = identify(value);
