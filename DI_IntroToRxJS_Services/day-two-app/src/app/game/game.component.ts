@@ -1,5 +1,9 @@
 import { Component } from "@angular/core";
 
+interface Game {
+    title: string;
+}
+
 @Component({
     selector: 'su-game',
     templateUrl: './game.component.html',
@@ -7,5 +11,9 @@ import { Component } from "@angular/core";
 })
 
 export class GameComponent {
-
+    games: Game[] = [
+        { title: 'Minecraft' },
+        { title: 'Candy Crush' },
+        { title: 'Counter Strike' }
+    ]
 }
