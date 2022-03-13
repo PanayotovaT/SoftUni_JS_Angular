@@ -1,6 +1,17 @@
 <ul>
-    <li *ngFor="let game of games">
+    <!-- <li class="game-title" *ngFor="let game of games"> -->
+    <li [class.game-title]="shouldShowContent" *ngFor="let game of games">
         Game: {{game.title}}
+        <span [style.color]="'red'" [style.font-size]="'25px'" *ngIf="game.price > 50">
+            Price: {{game.price}}
+        </span>
+        <span>
+            <img [src]="game.img" alt="img" width="150px">
+        </span>
     </li>
    
 </ul>
+
+<button (click)="handleExpandContent()">
+    {{shouldShowContent ? 'Collapse Content' : 'Expand Content'}}
+</button>

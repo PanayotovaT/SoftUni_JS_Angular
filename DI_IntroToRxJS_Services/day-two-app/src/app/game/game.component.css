@@ -1,3 +1,12 @@
 h2 {
     color: green;
 }
+
+.game-title{
+    font-style: italic;
+    color:rgb(105, 63, 8)
+}
+
+li {
+    display: inline-block;
+}
