@@ -14,7 +14,8 @@ interface Game {
 
 export class GameComponent {
     shouldShowContent?: boolean;
-    
+    shouldShowGameItemComponent?: boolean;
+
     searchText: string = 'Game 1';
 
     games: Game[] = [
@@ -31,5 +32,9 @@ export class GameComponent {
 
     handleSearchChange(event: Event) {
         console.log(event);
+    }
+
+    handleCreateOrDestroy(): void {
+        this.shouldShowGameItemComponent = !this.shouldShowGameItemComponent;
     }
 }
