@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, OnChanges, SimpleChanges } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit, OnChanges, SimpleChanges, DoCheck } from "@angular/core";
 
 export interface Game {
     title: string;
@@ -11,7 +11,7 @@ export interface Game {
     templateUrl:'./game-item.component.html'
 })
 
-export class GameItemComponent implements OnInit, OnDestroy, OnChanges{
+export class GameItemComponent implements OnInit, OnDestroy, OnChanges , DoCheck{
     @Input() sourceGame!: Game;
 
     ngOnInit(): void {
@@ -22,7 +22,12 @@ export class GameItemComponent implements OnInit, OnDestroy, OnChanges{
         console.log('GameItemComponent input changes', changes)
     }
 
-    ngOnDestroy(): void {
+    ngDoCheck() :void {
+        console.log('GameItemComponent checking')
+
+    }
+
+     ngOnDestroy(): void {
         console.log('Game Item component destroyed')
     }
 }
