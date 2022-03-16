@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-
-interface Game {
-    title: string;
-    price: number;
-    img: string;
-}
+import { Game } from "../game-item/game-item.component";
 
 @Component({
     selector: 'su-game',
