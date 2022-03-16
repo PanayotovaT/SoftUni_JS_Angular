@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, OnChanges, SimpleChanges, DoCheck } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit, OnChanges, SimpleChanges, DoCheck, ViewChild, ElementRef } from "@angular/core";
 
 export interface Game {
     title: string;
@@ -12,10 +12,13 @@ export interface Game {
 })
 
 export class GameItemComponent implements OnInit, OnDestroy, OnChanges , DoCheck{
+    @ViewChild('title')
+    title: ElementRef<HTMLElement>
+    
     @Input() sourceGame!: Game;
 
     ngOnInit(): void {
-        console.log('Game Item Componnet created')
+        console.log('Game Item Componnet created', this.title)
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -25,6 +28,10 @@ export class GameItemComponent implements OnInit, OnDestroy, OnChanges , DoCheck
     ngDoCheck() :void {
         console.log('GameItemComponent checking')
 
+    }
+
+    ngAfterViewInit(): void {
+        console.log('GameItemComponent after view init title', this.title)
     }
 
      ngOnDestroy(): void {
