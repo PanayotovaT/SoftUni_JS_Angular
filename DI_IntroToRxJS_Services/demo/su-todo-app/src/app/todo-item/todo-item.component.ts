@@ -18,4 +18,8 @@ export class TodoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleCompleteStateChange(todoToChange: Todo): void {
+    todoToChange.isCompleted = !todoToChange.isCompleted;
+  }
+
 }

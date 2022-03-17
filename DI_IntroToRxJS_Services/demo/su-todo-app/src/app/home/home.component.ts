@@ -32,9 +32,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleCompleteStateChange(todoToChange: Todo): void {
-    todoToChange.isCompleted = !todoToChange.isCompleted;
-  }
 
   markAllTodosAsCompleted(): void {
     for(const todo of this.todos) {
