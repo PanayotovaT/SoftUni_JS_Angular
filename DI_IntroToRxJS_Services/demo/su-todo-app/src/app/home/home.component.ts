@@ -38,4 +38,9 @@ export class HomeComponent implements OnInit {
       todo.isCompleted = true;
     }
   }
+
+  handleStateChange(todoToChange: Todo): void {
+    console.log(todoToChange.title);
+    todoToChange.isCompleted = !todoToChange.isCompleted;
+  }
 }
