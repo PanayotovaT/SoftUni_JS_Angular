@@ -29,14 +29,18 @@ export class TodoItemComponent implements OnInit {
 }
 
 class Calculator {
-  calculateArea(shape: any): number {
-    if (shape.width && shape.height) {
-      return shape.width * shape.height;
-    } else if (shape.base && shape.height) {
-      return shape.base * shape.height / 2;
-    }
+  // calculateArea(shape: any): number {
+  //   if (shape.width && shape.height) {
+  //     return shape.width * shape.height;
+  //   } else if (shape.base && shape.height) {
+  //     return shape.base * shape.height / 2;
+  //   }
 
-    return 0;
+  //   return 0;
+  // }
+
+  calculateArea(shape: iShape): number {
+    return shape.calculateArea()
   }
 }
 
@@ -72,12 +76,6 @@ class Circle implements iShape {
 }
 const calc = new Calculator();
 
-console.log(calc.calculateArea({ base: 6, height: 8 }));
-console.log(calc.calculateArea({ width: 4, height: 8 }));
-const triangle = new Triangle(4, 3);
-const rectangle = new Rectangle(5, 5);
-const circle = new Circle(4);
-
-console.log('Triangle', triangle.calculateArea());
-console.log('Rectangle', rectangle.calculateArea());
-console.log('Circle', circle.calculateArea());
+console.log('Rectangle', calc.calculateArea(new Rectangle( 4, 5)));
+console.log('Triangle', calc.calculateArea(new Triangle(6, 7)));
+console.log('Circle', calc.calculateArea(new Circle(6)));
