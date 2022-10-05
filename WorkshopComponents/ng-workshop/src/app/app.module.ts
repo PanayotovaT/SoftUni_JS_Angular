@@ -22,7 +22,8 @@ import { UserService } from './user.service';
     BrowserModule
   ],
   providers: [
-    {provide: UserService, useClass: UserService}
+    // {provide: UserService, useClass: UserService}
+    UserService
   ],
   bootstrap: [AppComponent,
     HeaderComponent,
