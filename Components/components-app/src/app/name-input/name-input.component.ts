@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameInputComponent implements OnInit {
 
+  inputValue = 'Dummy Value';
   constructor() { }
 
-  ngOnInit(): void {
+  btnClickHandler(value: string): void{
+    console.log('Button was clicked', value);
   }
-
+  ngOnInit(): void {
+      
+  }
 }
