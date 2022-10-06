@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    
+    box-sizing: border-box;
+    margin: 20px 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+

@@ -1,18 +1,19 @@
 <div class="welcome-message">{{welcomeMessage}}</div>
 {{title}}
-<app-name-input></app-name-input>
+<app-name-input *ngIf="isVisible"></app-name-input>
 
 <div class="toggle-container">
-    <div *ngIf="isVisible">
+    <!-- <div *ngIf="isVisible">
         IS VISIBLE
-    </div>
+    </div> -->
     <button (click)="toggleHandler()" class="toggle-btn">Toggle</button>
 </div>
 
 <ul>
-    <li *ngFor="let user of users">
-        <span>{{user.firstName}}</span>
-        <span>{{user.lastName}}</span>
-        <span>{{user.age}}</span>
+    <li *ngFor="let user of users; let i = index;">
+        <span class="index">{{i + 1}}</span>
+        <span class="span">First Name: {{user.firstName}} - </span>
+        <span class="span">Last Name: {{user.lastName}} - </span>
+        <span class="span">Age: {{user.age}}</span>
     </li>
 </ul>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-name-input',
@@ -7,18 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameInputComponent implements OnInit {
 
-  inputValue = 'Dummy Value';
+  // inputValue = 'Dummy Value';
   constructor() { }
 
-  inputKeyUpHandler(event: KeyboardEvent) {
-    console.log(event);
-    this.inputValue = (event.target as HTMLInputElement).value;
-  }
+  // inputKeyUpHandler(event: KeyboardEvent) {
+  //   console.log(event);
+  //   this.inputValue = (event.target as HTMLInputElement).value;
+  // }
 
-  btnClickHandler(value: any): void{
+  btnClickHandler(value: MouseEvent, inputEl: HTMLInputElement): void{
     console.log('Button was clicked', value);
+    console.log(inputEl.value);
   }
   ngOnInit(): void {
       
+  }
+
+  ngOnDestroy(): void {
+    console.log('Name input component was destroyed');
   }
 }

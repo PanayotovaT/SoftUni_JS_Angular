@@ -1,4 +1,10 @@
-<p>Your message : {{inputValue}}</p>
-<label for="name" class="lable-name">Name: </label>
-<input type="text" (keyup)="inputKeyUpHandler($event)" id="name" name="name" [value]="inputValue">
-<button (click)="btnClickHandler($event)">Click me!</button>
+
+<!-- <p>Your message : {{inputValue}}</p>
+<label for="name" class="lable-name">Name: </label> -->
+<!-- <input type="text" (keyup)="inputKeyUpHandler($event)" id="name" name="name" [value]="inputValue"> -->
+<div class="div-name-input" >
+    <div><span>{{inputEl.value}}</span></div>
+    <label for="name">Name:  </label>
+    <input type="text"  id="name" #inputEl>
+</div>
+<button (click)="btnClickHandler($event, inputEl)">Click me!</button>
