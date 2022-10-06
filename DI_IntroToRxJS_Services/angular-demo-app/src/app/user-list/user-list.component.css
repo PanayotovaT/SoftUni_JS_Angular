@@ -1,0 +1,16 @@
+
+#container {
+    background-color: rgb(229, 252, 187);
+    padding: 30px;
+}
+#name {
+    margin-right: 15px;
+}
+label {
+    margin-right: 5px;
+}
+
+input {
+    border: 1px solid gray;
+    border-radius:4px;
+}
