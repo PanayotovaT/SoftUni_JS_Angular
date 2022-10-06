@@ -1,13 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-name-input',
   templateUrl: './name-input.component.html',
   styleUrls: ['./name-input.component.css']
 })
-export class NameInputComponent implements OnInit {
+export class NameInputComponent implements OnInit, OnDestroy {
 
-  // inputValue = 'Dummy Value';
+  @Input() inputValue = 'Default Value';
+  @Output() btnClick = new EventEmitter();
+
   constructor() { }
 
   // inputKeyUpHandler(event: KeyboardEvent) {
@@ -18,6 +20,8 @@ export class NameInputComponent implements OnInit {
   btnClickHandler(value: MouseEvent, inputEl: HTMLInputElement): void{
     console.log('Button was clicked', value);
     console.log(inputEl.value);
+
+    this.btnClick.emit({inputEl});
   }
   ngOnInit(): void {
       

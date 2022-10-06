@@ -5,6 +5,6 @@
 <div class="div-name-input" >
     <div><span>{{inputEl.value}}</span></div>
     <label for="name">Name:  </label>
-    <input type="text"  id="name" #inputEl>
+    <input type="text" [value]="inputValue" id="name" #inputEl>
 </div>
 <button (click)="btnClickHandler($event, inputEl)">Click me!</button>

@@ -1,6 +1,6 @@
 <div class="welcome-message">{{welcomeMessage}}</div>
 {{title}}
-<app-name-input *ngIf="isVisible"></app-name-input>
+<app-name-input *ngIf="isVisible" [inputValue]="nameInputValue" (btnClick)="nameInputBtnClickHandler($event)"></app-name-input>
 
 <div class="toggle-container">
     <!-- <div *ngIf="isVisible">

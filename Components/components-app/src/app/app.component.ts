@@ -29,6 +29,7 @@ export class AppComponent {
 
   title = 'components-app';
   welcomeMessage="Hello Alexander!";
+  nameInputValue= 'Hello!';
 
   isVisible = false;
 
@@ -36,10 +37,16 @@ export class AppComponent {
 
 
   constructor(){
-
+    
   }
 
   toggleHandler() {
     this.isVisible = !this.isVisible;
+
   }
+
+  nameInputBtnClickHandler(data: {inputEl: HTMLInputElement}) : void{
+      console.log(data.inputEl.value)
+  }
+
 }
