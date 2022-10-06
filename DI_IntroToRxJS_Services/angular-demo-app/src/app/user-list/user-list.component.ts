@@ -13,17 +13,17 @@ export class UserListComponent implements OnInit {
 
   constructor() { 
     console.log(this.userArray);
-    debugger;
+    // debugger;
   }
 
   ngOnInit(): void {
     console.log(this.userArray);
-    debugger;
+    // debugger;
   }
 
   ngOnChanges(simpleChanges: SimpleChanges): void {
     console.log(simpleChanges);
-    debugger;
+    // debugger;
   }
 
   addNewUser(userNameInput: HTMLInputElement, userAgeInput: HTMLInputElement) : void {
