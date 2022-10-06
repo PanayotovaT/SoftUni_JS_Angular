@@ -34,19 +34,18 @@ export class AppComponent {
   isVisible = false;
 
   users = users;
-
-
-  constructor(){
-    
-  }
-
   toggleHandler() {
     this.isVisible = !this.isVisible;
-
   }
 
   nameInputBtnClickHandler(data: {inputEl: HTMLInputElement}) : void{
       console.log(data.inputEl.value)
   }
+
+  constructor(){
+    
+  }
+
+
 
 }
