@@ -10,7 +10,12 @@ export class NameInputComponent implements OnInit {
   inputValue = 'Dummy Value';
   constructor() { }
 
-  btnClickHandler(value: string): void{
+  inputKeyUpHandler(event: KeyboardEvent) {
+    console.log(event);
+    this.inputValue = (event.target as HTMLInputElement).value;
+  }
+
+  btnClickHandler(value: any): void{
     console.log('Button was clicked', value);
   }
   ngOnInit(): void {

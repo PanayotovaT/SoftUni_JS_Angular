@@ -7,6 +7,18 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'components-app';
-  welcomeMessage="Hello Alexander!"
+  welcomeMessage="Hello Alexander!";
+
+  isVisible = false;
+
+
+  constructor(){
+
+  }
+  
+  toggleHandler() {
+    this.isVisible = !this.isVisible;
+  }
 }
