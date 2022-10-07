@@ -8,7 +8,11 @@ import { IUser } from "./interfaces/user";
 //   providedIn: 'root'
 // });
 
-@Injectable()
+@Injectable(
+  // {
+  //   providedIn: 'root'
+  // }
+)
 export class UserService {
   users = [
     {
@@ -26,7 +30,7 @@ export class UserService {
   ]
   constructor(@Inject(myStingInjectionToken) myString: string) {
     console.log(myStingInjectionToken);
-   }
+  }
 
 
   addNewUserHandler(newUser: IUser): void {

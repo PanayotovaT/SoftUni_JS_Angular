@@ -1,6 +1,39 @@
-import { Component,  } from '@angular/core';
+import { Component, } from '@angular/core';
 import { UserService } from './user.service';
 
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(()=> resolve(3000), 3000);
+// });
+
+// p.then((value) => console.log(value));
+
+// Promise.resolve(1000).then(x => x + 1).then(x => console.log(x));
+
+const movie = of(1000, 200, 3000)
+
+//cold observable
+movie.pipe(
+  map(x => x + 100)
+).subscribe((x) => {
+  console.log(x)
+});
+
+movie.pipe(
+  map(x => x + 100)
+).subscribe((x) => {
+  console.log(x)
+});
+
+movie.pipe(
+  map(x => x + 100)
+).subscribe((x) => {
+  console.log(x)
+});
+
+//hot observable - shared one
 
 @Component({
   selector: 'app-root',
@@ -9,9 +42,9 @@ import { UserService } from './user.service';
   providers: []
 })
 export class AppComponent {
-  constructor(public userService: UserService){
+  constructor(public userService: UserService) {
 
   }
-  
+
 
 }

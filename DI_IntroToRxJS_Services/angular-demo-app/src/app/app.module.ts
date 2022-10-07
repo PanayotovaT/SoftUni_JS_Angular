@@ -17,10 +17,12 @@ export const myStingInjectionToken = new InjectionToken('myString');
   imports: [
     BrowserModule
   ],
-  providers: [{
-    provide: UserService,
-    useClass: UserService
-  },
+  providers: [
+    UserService,
+  //   {
+  //   provide: UserService,
+  //   useClass: UserService
+  // },
   {
     provide: myStingInjectionToken,
     useValue: 'Hello Alexander!'
