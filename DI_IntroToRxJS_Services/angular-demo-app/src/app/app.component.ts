@@ -1,31 +1,17 @@
 import { Component,  } from '@angular/core';
-import { IUser } from './interfaces/user';
+import { UserService } from './user.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: []
 })
 export class AppComponent {
-  
-  users = [
-    {
-      name: 'Alex',
-      age: 4
-    },
-    {
-      name: 'Sofia',
-      age: 3
-    },
-    {
-      name: 'Ivelina',
-      age: 36
-    }
-  ]
+  constructor(public userService: UserService){
 
-  addNewUserHandler(newUser: IUser): void {
-    this.users = this.users.concat(newUser);
   }
+  
 
 }
