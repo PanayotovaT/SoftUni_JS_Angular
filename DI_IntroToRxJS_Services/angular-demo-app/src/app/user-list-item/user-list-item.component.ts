@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { IUser } from '../interfaces/user';
 
 @Component({
   selector: 'app-user-list-item',
   templateUrl: './user-list-item.component.html',
-  styleUrls: ['./user-list-item.component.css']
+  styleUrls: ['./user-list-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListItemComponent implements OnInit {
 

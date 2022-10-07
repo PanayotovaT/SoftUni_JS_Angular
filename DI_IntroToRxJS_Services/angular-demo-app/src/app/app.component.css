@@ -1,13 +1,18 @@
 div {
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .header {
     padding: 30px;
-    background-color: rgba(243, 235, 237, 0.692);
+    border-bottom: 2px solid rgb(65, 1, 65);
+    
+
+    
 }
 
 .footer {
+    border-top: 2px solid rgb(65, 1, 65);
     padding: 30px;
-    background-color: rgb(252, 248, 228);
+    text-align: center;
 }

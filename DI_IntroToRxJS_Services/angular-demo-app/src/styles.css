@@ -3,4 +3,5 @@ body {
     box-sizing: border-box;
     margin: 60px;
     font-family: Georgia, 'Times New Roman', Times, serif ;
+    background-color: rgba(255, 239, 239, 0.637);
 }
