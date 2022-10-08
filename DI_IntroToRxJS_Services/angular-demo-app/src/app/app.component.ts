@@ -58,15 +58,20 @@ export class AppComponent  implements OnInit{
     this.loadUsers()
   }
 
-  loadUsers() {
+  loadUsers(search?: string) {
     this.users = undefined;
-    this.userService.loadUsers().subscribe(users => this.users = users )
+    this.userService.loadUsers(search).subscribe(users => this.users = users )
   }
 
   reloadBtnHandler() {
     this.loadUsers();
   }
 
+  searchBtnClickHandler(searchInput: HTMLInputElement): void {
+    const { value } = searchInput;
+    this.loadUsers(value);
+
+  }
 
 
 }

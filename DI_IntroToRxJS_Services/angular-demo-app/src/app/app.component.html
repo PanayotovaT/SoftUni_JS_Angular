@@ -5,6 +5,8 @@
 <div id="content" >
   <div *ngIf="users" >
     <button (click)="reloadBtnHandler()">Reload</button>
+    <input type="text" #searchInput>
+    <button (click)="searchBtnClickHandler(searchInput)">Search</button>
     <app-user-list [userArray]="users!" ></app-user-list>
   </div>
   <!-- <app-user-list [userArray]="userService.users" (addUser)="userService.addNewUserHandler($event)"></app-user-list> -->
