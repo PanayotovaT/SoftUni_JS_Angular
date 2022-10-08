@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-time',
@@ -10,7 +10,10 @@ import { map } from 'rxjs/operators';
 export class TimeComponent implements OnDestroy{
   timeStreamSubscription!: Subscription;
 
-  time$ = interval(1000).pipe(map(() => new Date()));
+  time$ = interval(1000).pipe(
+    startWith(''),
+    map(() => new Date())
+    );
 
   timeValue!: Date;
 
