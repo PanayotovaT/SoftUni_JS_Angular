@@ -2,8 +2,14 @@
   WELCOME TO ANGULAR!
 </div>
 
-<div id="content">
-  <app-user-list [userArray]="userService.users" (addUser)="userService.addNewUserHandler($event)"></app-user-list>
+<div id="content" >
+  <div *ngIf="users" >
+    <button (click)="reloadBtnHandler()">Reload</button>
+    <app-user-list [userArray]="users!" ></app-user-list>
+  </div>
+  <!-- <app-user-list [userArray]="userService.users" (addUser)="userService.addNewUserHandler($event)"></app-user-list> -->
+  <div *ngIf="!users" >Loading...</div>
+
 </div>
 
 

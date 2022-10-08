@@ -1,8 +1,11 @@
-import { Component, } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { IUser } from './interfaces/user';
 import { UserService } from './user.service';
 
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
+
+
+// import { of } from 'rxjs';
+// import { map } from 'rxjs/operators';
 
 // const p = new Promise((resolve, reject) => {
 //   setTimeout(()=> resolve(3000), 3000);
@@ -11,27 +14,27 @@ import { map } from 'rxjs/operators';
 // p.then((value) => console.log(value));
 
 // Promise.resolve(1000).then(x => x + 1).then(x => console.log(x));
-
-const movie = of(1000, 200, 3000)
+//--------------------------------
+// const movie = of(1000, 200, 3000)
 
 //cold observable
-movie.pipe(
-  map(x => x + 100)
-).subscribe((x) => {
-  console.log(x)
-});
+// movie.pipe(
+//   map(x => x + 100)
+// ).subscribe((x) => {
+//   console.log(x)
+// });
 
-movie.pipe(
-  map(x => x + 100)
-).subscribe((x) => {
-  console.log(x)
-});
+// movie.pipe(
+//   map(x => x + 100)
+// ).subscribe((x) => {
+//   console.log(x)
+// });
 
-movie.pipe(
-  map(x => x + 100)
-).subscribe((x) => {
-  console.log(x)
-});
+// movie.pipe(
+//   map(x => x + 100)
+// ).subscribe((x) => {
+//   console.log(x)
+// });
 
 //hot observable - shared one
 
@@ -41,10 +44,29 @@ movie.pipe(
   styleUrls: ['./app.component.css'],
   providers: []
 })
-export class AppComponent {
+// export class AppComponent {
+//   constructor(public userService: UserService) {
+
+//   }
+export class AppComponent  implements OnInit{
+  users: IUser[] | undefined;
   constructor(public userService: UserService) {
 
   }
+
+  ngOnInit(): void {
+    this.loadUsers()
+  }
+
+  loadUsers() {
+    this.users = undefined;
+    this.userService.loadUsers().subscribe(users => this.users = users )
+  }
+
+  reloadBtnHandler() {
+    this.loadUsers();
+  }
+
 
 
 }

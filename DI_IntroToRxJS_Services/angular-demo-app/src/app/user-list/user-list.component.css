@@ -3,6 +3,7 @@
     padding: 30px;
     height: 40vh;
     text-align: left;
+    overflow: scroll;
 }
 #name {
     margin-right: 15px;
