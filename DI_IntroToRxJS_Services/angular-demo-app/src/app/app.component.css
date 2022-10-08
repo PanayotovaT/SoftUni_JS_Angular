@@ -6,10 +6,11 @@ div {
 .header {
     padding: 30px;
     border-bottom: 2px solid rgb(65, 1, 65);
-    
+   }
 
-    
-}
+.hidden{
+    display: none;
+   }
 
 .footer {
     border-top: 2px solid rgb(65, 1, 65);
