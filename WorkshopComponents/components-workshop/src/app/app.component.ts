@@ -8,6 +8,7 @@ import { IPost} from './shared/interfaces';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title="components-workshop";
   posts: IPost[] | undefined;
 
   constructor(private contentService: ContentService) {
