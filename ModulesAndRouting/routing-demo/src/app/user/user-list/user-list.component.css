@@ -1,0 +1,39 @@
+
+#container {
+    padding: 30px;
+    height: 40vh;
+    text-align: left;
+    overflow: scroll;
+}
+#name {
+    margin-right: 15px;
+}
+label {
+    margin-right: 5px;
+    width: 100px;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid gray;
+    border-radius:4px;
+    height: 20px;
+    width: 200px
+}
+
+.user-list {
+    margin-bottom: 20px;
+}
+
+.field:first-child {
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+
+}

@@ -1,18 +1,33 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserService } from './user.service';
+import  { HttpClientModule} from '@angular/common/http';
+import { TimeComponent } from './time/time.component'
+
+export const myStingInjectionToken = new InjectionToken('myString');
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+  //   {
+  //   provide: UserService,
+  //   useClass: UserService
+  // },
+  {
+    provide: myStingInjectionToken,
+    useValue: 'Hello Alexander!'
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
