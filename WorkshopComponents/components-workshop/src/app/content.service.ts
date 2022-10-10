@@ -9,11 +9,12 @@ export class ContentService {
   constructor(private http: HttpClient) { }
 
   loadThemes() {
-    this.http.get<ITheme[]>('http://localhost:3000/api/themes');
+    return this.http.get<ITheme[]>('http://localhost:3000/api/themes');
   }
 
-  loadPosts() {
-    this.http.get<IPost[]>('http://localhost:3000/api/posts');
+  loadPosts(take?: number) {
+    const query = take ? `?limit=${take}` : ''
+    return this.http.get<IPost[]>(`http://localhost:3000/api/posts${query}`);
   }
 
 
