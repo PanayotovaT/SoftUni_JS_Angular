@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TimeComponent } from './time/time.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

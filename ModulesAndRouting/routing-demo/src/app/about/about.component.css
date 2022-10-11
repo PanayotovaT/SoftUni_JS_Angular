@@ -1,0 +1,16 @@
+.about-title {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gainsboro;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.about-paragraph {
+  margin-top: 40px;
+  font-family: Helvetica, sans-serif;
+
+
+}

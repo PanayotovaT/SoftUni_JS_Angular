@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 import { IUser } from '../../interfaces/user';
 
 @Component({
@@ -6,40 +7,28 @@ import { IUser } from '../../interfaces/user';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-// export class UserListComponent implements OnInit {
 
-//   @Input() userArray: IUser[] = [];
-//   @Output() addUser = new EventEmitter<IUser>()
-
-//   constructor() {
-//     console.log(this.userArray);
-//     // debugger;
-//   }
-
-  // ngOnInit(): void {
-  //   console.log(this.userArray);
-  //   // debugger;
-  // }
-
-  // ngOnChanges(simpleChanges: SimpleChanges): void {
-  //   console.log(simpleChanges);
-  //   // debugger;
-  // }
-
-  // addNewUser(userNameInput: HTMLInputElement, userAgeInput: HTMLInputElement) : void {
-  //   const { value:  name } = userNameInput;
-  //   const { valueAsNumber: age } = userAgeInput;
-
-  //   this.addUser.emit({name, age});
-
-  //   userNameInput.value ='';
-  //   userAgeInput.value = '';
-  // }
-
-// }
 
 export class UserListComponent {
-  @Input() userArray: IUser[] = [];
+  users: IUser[] | undefined;
+  constructor(public userService: UserService) {
+    this.loadUsers()
+  }
+
+  loadUsers(search?: string) {
+    this.users = undefined;
+    this.userService.loadUsers(search).subscribe(users => this.users = users )
+  }
+
+  reloadBtnHandler() {
+    this.loadUsers();
+  }
+
+  searchBtnClickHandler(searchInput: HTMLInputElement): void {
+    const { value } = searchInput;
+    this.loadUsers(value);
+
+  }
 
 
 }
