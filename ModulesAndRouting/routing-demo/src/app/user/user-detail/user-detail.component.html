@@ -1,1 +1,14 @@
-<p>user-detail works!</p>
+<div class="container">
+  <div class="detail-user-info">
+    <h2>User Information</h2>
+    <div *ngIf="user">
+      <p>Username: <span>{{user?.username}}</span></p>
+      <p>Email: <span>{{user.email}}</span></p>
+      <p>Phone: <span>{{user.phone}}</span></p>
+      <p>City: <span>{{user.address.city}}</span></p>
+      <p>Company name: <span>{{user.company.name}}</span></p>
+      <p>Website: <span>{{user.website}}</span></p>
+    </div>
+    <app-loader *ngIf="!user"></app-loader>
+  </div>
+</div>

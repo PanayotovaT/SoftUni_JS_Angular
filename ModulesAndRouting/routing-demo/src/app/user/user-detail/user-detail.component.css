@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-user-info{
+  text-align: left;
+}
+
+h2{
+  text-decoration: underline;
+}
