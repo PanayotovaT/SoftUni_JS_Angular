@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
@@ -10,10 +11,6 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '/user-list'
 
-  },
-  {
-    path: 'user-list',
-    component: UserListComponent
   },
   {
     path: 'about',
