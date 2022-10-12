@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { IUser } from 'src/app/interfaces/user';
 import { UserService } from '../user.service';
 
@@ -21,6 +21,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
     .pipe(
+      tap(()=>{this.user = undefined}),
       switchMap(({id}) =>this.userService.loadUser(id))
       ).subscribe(user => this.user = user)
 

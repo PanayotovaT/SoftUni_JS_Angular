@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TestModule } from './test/test.module';
 
 export const myStingInjectionToken = new InjectionToken('myString');
 
@@ -24,7 +25,8 @@ export const myStingInjectionToken = new InjectionToken('myString');
     CoreModule,
     SharedModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TestModule
   ],
   providers: [
 
