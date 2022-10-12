@@ -4,6 +4,11 @@
 
 span {
     display: inline-block;
-    width: 150px;
+    margin-right: 10px;
+
+}
+
+button {
+  margin-left: 30px;
 }
 

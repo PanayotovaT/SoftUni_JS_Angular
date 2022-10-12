@@ -8,7 +8,9 @@
       <p>City: <span>{{user.address.city}}</span></p>
       <p>Company name: <span>{{user.company.name}}</span></p>
       <p>Website: <span>{{user.website}}</span></p>
+      <button [routerLink]="['/user-detail', user.id +1]">Next</button>
     </div>
     <app-loader *ngIf="!user"></app-loader>
   </div>
+  <button type="button" routerLink="/user-list">Back to user list</button>
 </div>
