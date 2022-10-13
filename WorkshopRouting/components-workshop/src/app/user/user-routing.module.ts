@@ -6,15 +6,15 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 {
-  path: '/login',
+  path: 'login',
   component: LoginComponent
 },
 {
-  path: '/register',
+  path: 'register',
   component: RegisterComponent
 },
 {
-  path: '/profile',
+  path: 'profile',
   component: ProfileComponent
 }
 ];
