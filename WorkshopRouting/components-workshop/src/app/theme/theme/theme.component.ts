@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ContentService } from '../content.service';
-import { ITheme } from '../shared/interfaces';
+import { ContentService } from '../../content.service';
+import { ITheme } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-theme',
@@ -11,10 +11,10 @@ export class ThemeComponent {
 
   themes: ITheme[] | undefined;
 
-  constructor(private contentService: ContentService) { 
+  constructor(private contentService: ContentService) {
     this.fetchTehemes();
   }
-  
+
   fetchTehemes() : void {
     this.themes = undefined;
     this.contentService.loadThemes().subscribe(themes => this.themes = themes);
