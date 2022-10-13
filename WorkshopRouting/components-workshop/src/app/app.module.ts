@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     CoreModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [ContentService],
   bootstrap: [AppComponent]
