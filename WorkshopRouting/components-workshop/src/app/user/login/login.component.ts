@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export class LoginComponent implements OnInit {
 
   icons = {
-    faEnvelope
+    faEnvelope,
+    faLock
   }
   constructor() { }
 
