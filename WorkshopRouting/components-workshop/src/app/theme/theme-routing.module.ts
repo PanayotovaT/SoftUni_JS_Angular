@@ -9,7 +9,7 @@ const routes: Routes = [
     path: 'themes',
     children: [
       {
-        path: 'themes',
+        path: '',
         pathMatch: 'full',
         component: ThemesComponent
       },
