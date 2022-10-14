@@ -4,6 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { ThemeRouterModule } from './theme/theme-routing.module';
 
 const routes: Routes = [
+ {
+   path: '',
+   pathMatch: 'full',
+   redirectTo: 'home'
+ },
   {
     path: 'home',
     component: HomeComponent
