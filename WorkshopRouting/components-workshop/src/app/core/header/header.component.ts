@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.css'],
   // encapsulation: ViewEncapsulation.ShadowDom
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   get isLogged(): boolean{
     return this.userService.isLogged;
@@ -16,9 +17,14 @@ export class HeaderComponent implements OnInit {
   get firstName(): string {
     return this.userService.user?.firstName || '' ;
   }
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+    ) { }
 
-  ngOnInit(): void {
+
+  logout(): void{
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
-
 }
