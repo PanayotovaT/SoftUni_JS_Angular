@@ -64,3 +64,25 @@
 time {
   font-weight: bold;
 }
+
+main {
+  width: 50%;
+}
+
+h3 {
+border-bottom: none;
+border-radius: 0.3rem;
+font-size: 1.2rem;
+background-color: #4ebced;
+padding-left: 0.5rem;
+padding-top: 0;
+}
+
+p {
+text-align: right;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}

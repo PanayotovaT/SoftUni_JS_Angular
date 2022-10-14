@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeComponent } from './theme/theme.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemesComponent } from './themes/themes.component';
+import { AsideComponent } from './aside/aside.component';
 
 
 
@@ -10,11 +11,12 @@ import { ThemesComponent } from './themes/themes.component';
   declarations: [
     ThemeComponent,
     NewThemeComponent,
-    ThemesComponent
+    ThemesComponent,
+    AsideComponent
+
   ],
   imports: [
     CommonModule,
-
   ]
 })
 export class ThemeModule { }

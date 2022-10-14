@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   icons= {
     faSignInAlt,
     faUserPlus
   }
-  constructor() { }
 
-  ngOnInit(): void {
+  get isLogged(): boolean {
+    return this.userService.isLogged;
   }
+
+  constructor(private userService: UserService) { }
+
+
 
 }
