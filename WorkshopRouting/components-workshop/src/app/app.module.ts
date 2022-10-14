@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './theme/theme.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ThemeModule } from './theme/theme.module';
     CoreModule,
     UserModule,
     AppRoutingModule,
-    ThemeModule
+    ThemeModule,
+    FontAwesomeModule
   ],
   providers: [ContentService],
   bootstrap: [AppComponent]
