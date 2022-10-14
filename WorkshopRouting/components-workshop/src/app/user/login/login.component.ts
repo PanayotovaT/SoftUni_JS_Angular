@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../user.service';
 
@@ -15,13 +15,15 @@ export class LoginComponent {
     faLock
   }
   constructor(
+    private activateRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router
     ) { }
 
   login(email: string, password: string): void {
     this.userService.login(email, password);
-    this.router.navigate(['/']);
+    const redirectUrl = this.activateRoute.snapshot.queryParams['redirectUrl'] || '/';
+    this.router.navigate([redirectUrl]);
   }
 
 }
