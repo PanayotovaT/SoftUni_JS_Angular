@@ -13,7 +13,15 @@ export class UserService {
     return !!this.user
   }
 
-  constructor(@Inject(LocalStorage) private localStorage: Window['localStorage']) { }
+  constructor(@Inject(LocalStorage) private localStorage: Window['localStorage']) {
+  try{
+    const loaclStorageUser = this.localStorage.getItem('<USER>') || 'ERROR';
+    this.user = JSON.parse(loaclStorageUser);
+  } catch(err) {
+    this.user = undefined;
+  }
+
+   }
 
   login(email: string, password: string): void {
     this.user = {
@@ -21,6 +29,8 @@ export class UserService {
       firstName: 'Alex',
       lastName: 'Panayotov'
     }
+
+    this.localStorage.setItem('<USER>', JSON.stringify(this.user));
 
   }
 
