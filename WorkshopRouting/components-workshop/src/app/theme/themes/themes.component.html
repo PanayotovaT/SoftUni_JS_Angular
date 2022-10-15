@@ -1,15 +1,10 @@
 <div class="container">
-  <!-- <main>
-    <app-theme></app-theme>
-  </main> -->
 
-
-
-
-  <!-- theme component  -->
   <main>
+   <!-- <app-home></app-home> -->
+   <app-welcome-message></app-welcome-message>
+    <div *ngIf="themes">
     <div class="theme-title">
-  <div *ngIf="themes">
     <div *ngFor="let theme of themes" class="theme-container">
       <div class="theme-name-wrapper">
         <div class="theme-name">

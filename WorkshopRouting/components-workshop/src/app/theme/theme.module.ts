@@ -4,6 +4,7 @@ import { ThemeComponent } from './theme/theme.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemesComponent } from './themes/themes.component';
 import { AsideComponent } from './aside/aside.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,11 +13,12 @@ import { AsideComponent } from './aside/aside.component';
     ThemeComponent,
     NewThemeComponent,
     ThemesComponent,
-    AsideComponent
+    AsideComponent,
 
   ],
   imports: [
     CommonModule,
+    SharedModule,
   ]
 })
 export class ThemeModule { }

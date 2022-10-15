@@ -1,12 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    WelcomeMessageComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
+    AppRoutingModule
+  ],
+  exports: [
+    WelcomeMessageComponent
   ]
+
 })
 export class SharedModule { }
