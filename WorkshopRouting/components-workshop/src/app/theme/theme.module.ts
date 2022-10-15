@@ -5,6 +5,7 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemesComponent } from './themes/themes.component';
 import { AsideComponent } from './aside/aside.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule
   ]
 })
 export class ThemeModule { }

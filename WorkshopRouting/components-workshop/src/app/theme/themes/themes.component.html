@@ -5,10 +5,10 @@
    <app-welcome-message></app-welcome-message>
     <div *ngIf="themes">
     <div class="theme-title">
-    <div *ngFor="let theme of themes" class="theme-container">
+    <div *ngFor="let theme of themes" class="theme-container" >
       <div class="theme-name-wrapper">
         <div class="theme-name">
-          <a href="#" class="normal">
+          <a [routerLink]="['/themes', theme._id]" class="normal">
             <h2>{{theme.themeName}}</h2>
           </a>
           <div class="columns">
