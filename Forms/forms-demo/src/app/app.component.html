@@ -3,7 +3,7 @@
   <router-outlet ></router-outlet>
 </div>
 
-<button (click)="toggleActive()">Toggle Active</button>
+<button (click)="toggleActive()" appHighlight [isActive]="isActive">Toggle Active</button>
 <ng-template #isActiveTemplate >
   IS ACTIVE -TRUE
 </ng-template>
