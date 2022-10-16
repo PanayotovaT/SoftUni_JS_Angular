@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.detail-user-info{
+  text-align: left;
+}
+
+h2{
+  text-decoration: underline;
+}
+button {
+  width: 200px;
+  padding: 5px 10px;
+  position: relative;
+  left: -37px;;
+}
