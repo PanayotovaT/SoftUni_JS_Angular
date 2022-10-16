@@ -16,6 +16,14 @@
 <ng-container *ngIf="isActive; else isNotActiveTemplate">
   IS ACTIVE -TRUE
 </ng-container>
+<br>
+
+
+  <ng-container *appMyIf="isActive">
+    IS ACTIVE -TRUE
+  </ng-container>
+
+
 <app-footer></app-footer>
 
 <!-- (activate)="activateHandler($event)" -->
