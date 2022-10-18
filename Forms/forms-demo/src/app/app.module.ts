@@ -14,6 +14,7 @@ import { HighlightDirective } from './highlight.directive';
 import { MyIfDirective } from './my-if.directive';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { SameValueDirective } from './same-value.directive';
 
 export const myStingInjectionToken = new InjectionToken('myString');
 
@@ -25,6 +26,7 @@ export const myStingInjectionToken = new InjectionToken('myString');
     HighlightDirective,
     MyIfDirective,
     LoginComponent,
+    SameValueDirective,
   ],
   imports: [
     BrowserModule,
