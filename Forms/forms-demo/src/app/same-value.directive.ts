@@ -1,5 +1,5 @@
-import { Directive } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { Directive, Input } from '@angular/core';
+import { AbstractControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 
 @Directive({
   selector: '[appSameValue]',
@@ -9,11 +9,25 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
     multi: true
   }]
 })
-export class SameValueDirective implements Validator{
+export class SameValueDirective implements Validator {
 
-  constructor() { }
+  @Input() appSameValue = "";
+  @Input() name!: string;
+
+  constructor(private form: NgForm) {
+    console.log(form);
+  }
   validate(control: AbstractControl): ValidationErrors | null {
-    return null;
+    const otherField = this.form.controls[this.appSameValue].value;
+
+    return control.value !== otherField
+      ? {
+        sameValue: {
+          [this.appSameValue]: otherField,
+          [this.name]: control.value
+         }
+      }
+      : null
   }
 
 }
