@@ -18,10 +18,13 @@
 </ng-container>
 <br>
 
-
-  <ng-container *appMyIf="isActive">
-    IS ACTIVE -TRUE
-  </ng-container>
+  <ng-template [appMyIf]="isActive" let-data="data" let-test>
+    <ng-container >
+      {{data}}
+      {{test}}
+      IS ACTIVE -TRUE
+    </ng-container>
+  </ng-template>
 
 
 <app-footer></app-footer>

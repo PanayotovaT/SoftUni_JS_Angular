@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { TestModule } from './test/test.module';
 import { HighlightDirective } from './highlight.directive';
 import { MyIfDirective } from './my-if.directive';
+import { LoginComponent } from './login/login.component';
 
 export const myStingInjectionToken = new InjectionToken('myString');
 
@@ -22,6 +23,7 @@ export const myStingInjectionToken = new InjectionToken('myString');
     PageNotFoundComponent,
     HighlightDirective,
     MyIfDirective,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
