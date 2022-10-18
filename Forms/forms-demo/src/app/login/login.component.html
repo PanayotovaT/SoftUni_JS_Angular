@@ -1,15 +1,30 @@
-<form>
+<!-- {{form.value.email}} -->
+<form #form="ngForm" (ngSubmit)="loginHandler(form)">
   <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+    <label for="email" appHighlight [isActive]="true">Email</label>
+    <input type="text" name="email" id="email" #emailInput="ngModel" ngModel required email>
+    <!-- <input type="text" name="email" id="email" [ngModel]="testEmail"> -->
+    <ul class="errors" *ngIf="emailInput.invalid && emailInput.touched">
+      <li *ngIf="emailInput.errors?.['required']">Email is required.</li>
+      <li *ngIf="emailInput.errors?.['email']">Email is not valid</li>
+
+    </ul>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="password" #passwordInput="ngModel" ngModel required [minlength]="6">
+      <ul class="errors" *ngIf="passwordInput.invalid&& passwordInput.touched">
+        <li *ngIf="passwordInput.errors?.['required']">Password is a required field!</li>
+        <li *ngIf="passwordInput.errors?.['minlength']"> Password must be at least 6 characters long!</li>
+      </ul>
   </div>
   <div class="form-group">
     <label for="repeat-password">Repeat Password</label>
-    <input type="repeat-password" name="repeat-password" id="repeat-password">
+    <input type="password" name="repeatPassword" id="repeat-password" #repeatPassword="ngModel" ngModel required [minlength]="6">
+    <ul class="errors" *ngIf="repeatPassword.invalid && repeatPassword.touched">
+      <li *ngIf="repeatPassword.errors?.['required']">Repeat Password is a reqired field!</li>
+      <li *ngIf="repeatPassword.errors?.['minlength']">Repeat Password must be at least 6 characters long!</li>
+    </ul>
   </div>
   <button>Login</button>
 </form>

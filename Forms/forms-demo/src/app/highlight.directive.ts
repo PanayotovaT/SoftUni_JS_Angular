@@ -5,6 +5,7 @@ import { Directive, ElementRef, HostBinding, Input, OnChanges, SimpleChanges } f
 })
 export class HighlightDirective{ // implements OnChanges {
 
+  @HostBinding('style.color') color ='black';
   @Input() set isActive(isActive: boolean){
     if(isActive) {
       this.color ='red';
@@ -13,7 +14,6 @@ export class HighlightDirective{ // implements OnChanges {
     }
   }
 
-  @HostBinding('style.color') color ='black';
 
   //--------------------------------
   // @Input() isActive!: boolean;

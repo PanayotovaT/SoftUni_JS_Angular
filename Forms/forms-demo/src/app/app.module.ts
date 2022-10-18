@@ -13,6 +13,7 @@ import { TestModule } from './test/test.module';
 import { HighlightDirective } from './highlight.directive';
 import { MyIfDirective } from './my-if.directive';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 export const myStingInjectionToken = new InjectionToken('myString');
 
@@ -28,6 +29,7 @@ export const myStingInjectionToken = new InjectionToken('myString');
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     CoreModule,
     SharedModule,
     UserModule,
@@ -39,7 +41,8 @@ export const myStingInjectionToken = new InjectionToken('myString');
   {
     provide: myStingInjectionToken,
     useValue: 'Hello Alexander!'
-  }
+  },
+
 ],
   bootstrap: [AppComponent]
 })

@@ -12,14 +12,15 @@ import { Component } from '@angular/core';
 //   }
 export class AppComponent{
 
-  isActive = false;
+  //------------------------------
+  // isActive = false;
 
-  isActiveHandler(data: any): void {
-    console.log(data);
-  }
+  // isActiveHandler(data: any): void {
+  //   console.log(data);
+  // }
 
-  toggleActive(): void {
-    this.isActive = !this.isActive;
-  }
+  // toggleActive(): void {
+  //   this.isActive = !this.isActive;
+  // }
 
 }
