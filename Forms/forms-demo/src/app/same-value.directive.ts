@@ -1,5 +1,6 @@
-import { Directive, Input } from '@angular/core';
-import { AbstractControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { Directive, Input, OnDestroy } from '@angular/core';
+import { AbstractControl, NgControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appSameValue]',
@@ -9,25 +10,52 @@ import { AbstractControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } f
     multi: true
   }]
 })
-export class SameValueDirective implements Validator {
+export class SameValueDirective  implements Validator, OnDestroy {
 
   @Input() appSameValue = "";
   @Input() name!: string;
+  otherControl!: AbstractControl;
+  subscription!: Subscription;
+  // currentControl!: AbstractControl
 
-  constructor(private form: NgForm) {
+  constructor(
+    private form: NgForm,
+    ) {
     console.log(form);
   }
+  // ngOnChanges(simpleChanges: SimpleChanges): void {
+  //   if(simpleChanges['appSameValue']){
+  //     if(this.subscription) {
+  //       this.subscription.unsubscribe()
+  //     }
+  //     this.otherField = this.form.controls[this.appSameValue];
+  //     this.subscription = this.control.valueChanges!.subscribe(()=> {
+  //       // this.ngModel.control.updateValueAndValidity({onlySelf: true});
+  //     })
+  //   }
+  // }
   validate(control: AbstractControl): ValidationErrors | null {
-    const otherField = this.form.controls[this.appSameValue].value;
+    const otherControl = this.form.controls[this.appSameValue];
+    // const otherControlValue = otherControl.value;
 
-    return control.value !== otherField
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    this.subscription =otherControl.valueChanges!.subscribe(()=> {
+        control.updateValueAndValidity({onlySelf: true})
+    })
+
+    return control.value !== otherControl?.value
       ? {
         sameValue: {
-          [this.appSameValue]: otherField,
+          [this.appSameValue]: otherControl?.value,
           [this.name]: control.value
          }
       }
       : null
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }
