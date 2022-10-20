@@ -1,7 +1,7 @@
 import { Directive, Input, OnDestroy } from '@angular/core';
 import { AbstractControl, NgControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 import { Subscription } from 'rxjs';
-
+import { sameValueValidateFactory } from './same-valu-validate-fn';
 @Directive({
   selector: '[appSameValue]',
   providers: [{
@@ -45,14 +45,7 @@ export class SameValueDirective  implements Validator, OnDestroy {
         control.updateValueAndValidity({onlySelf: true})
     })
 
-    return control.value !== otherControl?.value
-      ? {
-        sameValue: {
-          [this.appSameValue]: otherControl?.value,
-          [this.name]: control.value
-         }
-      }
-      : null
+    return sameValueValidateFactory(this.name, this.appSameValue, otherControl,)
   }
 
   ngOnDestroy(): void {

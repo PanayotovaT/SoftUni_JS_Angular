@@ -1,21 +1,21 @@
-import { AbstractControl} from "@angular/forms";
+import { AbstractControl } from "@angular/forms";
 
-export function sameValueValidate(
- control: AbstractControl,
- controlName: string,
- otherControl: AbstractControl,
- otherControlName: string
+export function sameValueValidateFactory(
+  controlName: string,
+  otherControlName: string,
+  otherControl: AbstractControl
 ) {
-
-  return control.value !== otherControl?.value
-    ? {
-      sameValue: {
-        [otherControlName]: otherControl?.value,
-        [controlName] : control.value
+  return function sameValueValidate(
+    control: AbstractControl,
+  ) {
+    return control.value !== otherControl?.value
+      ? {
+        sameValue: {
+          [otherControlName]: otherControl?.value,
+          [controlName]: control.value
         }
-
       }
+      : null
 
-    : null
-
+  }
 }
