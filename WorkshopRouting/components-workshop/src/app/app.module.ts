@@ -23,10 +23,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     CoreModule,
     UserModule,
-    AppRoutingModule,
     ThemeModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [ContentService],
   bootstrap: [AppComponent]
