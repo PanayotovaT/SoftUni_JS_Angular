@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserService } from './user.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,7 @@ import { UserService } from './user.service';
   imports: [
     CommonModule,
     UserRoutingModule,
+    FormsModule,
     FontAwesomeModule
   ],
   providers: [

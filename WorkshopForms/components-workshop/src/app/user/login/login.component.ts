@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../user.service';
@@ -20,7 +21,11 @@ export class LoginComponent {
     private router: Router
     ) { }
 
-  login(email: string, password: string): void {
+  login(form: NgForm): void {
+    if(form.invalid) {
+      return;
+    }
+    const { email, password} = form.value;
     this.userService.login(email, password);
     const redirectUrl = this.activateRoute.snapshot.queryParams['redirectUrl'] || '/';
     this.router.navigate([redirectUrl]);
