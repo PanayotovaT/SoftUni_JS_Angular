@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedModule
   ],
   providers: [
     UserService
