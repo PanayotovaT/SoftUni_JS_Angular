@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { faUser, faEnvelope, faPhone, faLock } from '@fortawesome/free-solid-svg-icons';
+import { emailValidator } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 
@@ -17,9 +19,20 @@ export class RegisterComponent {
     faLock
   }
 
-  constructor(private userService: UserService) { }
+  form!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(4)]],
+      email: ['',[Validators.required, emailValidator]],
+      tel: [''],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      rePassword: ['', Validators.required]
+    })
+   }
 
   register(): void {
-
+    if(this.form.invalid){ return; }
+    console.log(this.form);
   }
 }

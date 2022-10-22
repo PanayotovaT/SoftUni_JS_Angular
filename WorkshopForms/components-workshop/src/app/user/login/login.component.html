@@ -17,7 +17,7 @@
       <p class="error" *ngIf="emailInput.touched && emailInput.errors?.['required']">
         Email is required!
       </p>
-      <p class="error" *ngIf="emailInput.touched && emailInput.errors?.['email']">
+      <p class="error" *ngIf="emailInput.touched && emailInput.errors?.['invalidEmail']">
         Email is not valid!
       </p>
 
