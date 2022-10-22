@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { faUser, faEnvelope, faPhone, faLock } from '@fortawesome/free-solid-svg-icons';
-import { emailValidator } from 'src/app/shared/validators';
+import { emailValidator, sameValueAsFactory } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 
@@ -27,7 +27,7 @@ export class RegisterComponent {
       email: ['',[Validators.required, emailValidator]],
       tel: [''],
       password: ['', [Validators.required, Validators.minLength(4)]],
-      rePassword: ['', Validators.required]
+      rePassword: ['', [Validators.required, sameValueAsFactory(()=> this.form?.get('password')!)]]
     })
    }
 
