@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     CoreModule,
     UserModule,
+    HttpClientModule,
     ThemeModule,
     FontAwesomeModule,
     SharedModule,

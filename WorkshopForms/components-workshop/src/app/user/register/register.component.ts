@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faUser, faEnvelope, faPhone, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { emailValidator, sameValueAsFactory } from 'src/app/shared/validators';
@@ -24,7 +25,11 @@ export class RegisterComponent implements OnDestroy {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+    ) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       email: ['',[Validators.required, emailValidator]],
@@ -37,7 +42,12 @@ export class RegisterComponent implements OnDestroy {
 
   register(): void {
     if(this.form.invalid){ return; }
-    console.log(this.form);
+    this.userService.register(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      },
+      error: (err)=> console.log(err)
+    })
   }
 
   ngOnDestroy(): void {
