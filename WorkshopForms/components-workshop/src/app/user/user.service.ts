@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LocalStorage } from '../core/injection-tokens';
 import { IUser } from '../shared/interfaces';
 
 const apiURL = environment.apiUrl;
@@ -19,27 +18,13 @@ export class UserService {
   }
 
   constructor(
-    // @Inject(LocalStorage) private localStorage: Window['localStorage']
     private http: HttpClient
-  ) {
-    // try{
-    //   const loaclStorageUser = this.localStorage.getItem('<USER>') || 'ERROR';
-    //   this.user = JSON.parse(loaclStorageUser);
-    // } catch(err) {
-    //   this.user = undefined;
-    // }
+  ) {}
 
-  }
-
-  login(email: string, password: string): void {
-    // this.user = {
-    //   email: email,
-    //   firstName: email,
-    //   lastName: 'Panayotov'
-    // }
-
-    // this.localStorage.setItem('<USER>', JSON.stringify(this.user));
-
+  login(data: {email: string, password: string}){
+    return this.http.post<IUser>(`${apiURL}/login`, data, {withCredentials: true}).pipe(
+      tap((user) => this.user = user)
+    )
   }
 
   register(data: { username: string; email: string; tel: string, password: string }) {
@@ -55,10 +40,15 @@ export class UserService {
   }
 
   logout() {
-    // this.user = undefined;
-    // this.localStorage.removeItem('<USER>');
     return this.http.post<IUser>(`${apiURL}/logout`, {}, {withCredentials: true}).pipe(
       tap(()=> this.user = null)
     )
   }
+
+  updateProfile(data: {username: string; email: string; tel: string}){
+    return this.http.put<IUser>(`${apiURL}/users/profile`, data, {withCredentials: true}).pipe(
+      tap((user)=> this.user = user)
+    )
+  }
+
 }

@@ -23,16 +23,21 @@ export class LoginComponent {
     private activateRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router
-    ) { }
+  ) { }
 
   login(form: NgForm): void {
-    if(form.invalid) {
+    if (form.invalid) {
       return;
     }
-    const { email, password} = form.value;
-    this.userService.login(email, password);
-    const redirectUrl = this.activateRoute.snapshot.queryParams['redirectUrl'] || '/';
-    this.router.navigate([redirectUrl]);
+    const { email, password } = form.value;
+    this.userService.login({ email, password }).subscribe({
+      next: () => {
+        const redirectUrl = this.activateRoute.snapshot.queryParams['redirectUrl'] || '/';
+        this.router.navigate([redirectUrl]);
+      },
+      error: (error)=> {
+        console.log(error)
+      }
+    });
   }
-
 }
