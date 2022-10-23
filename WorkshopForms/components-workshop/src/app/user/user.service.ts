@@ -11,7 +11,7 @@ const apiURL = environment.apiUrl;
   providedIn: 'root'
 })
 export class UserService {
-  user: IUser | undefined;
+  user: IUser | null | undefined = undefined;
 
   get isLogged(): boolean {
 
@@ -21,15 +21,15 @@ export class UserService {
   constructor(
     // @Inject(LocalStorage) private localStorage: Window['localStorage']
     private http: HttpClient
-    ) {
-  // try{
-  //   const loaclStorageUser = this.localStorage.getItem('<USER>') || 'ERROR';
-  //   this.user = JSON.parse(loaclStorageUser);
-  // } catch(err) {
-  //   this.user = undefined;
-  // }
+  ) {
+    // try{
+    //   const loaclStorageUser = this.localStorage.getItem('<USER>') || 'ERROR';
+    //   this.user = JSON.parse(loaclStorageUser);
+    // } catch(err) {
+    //   this.user = undefined;
+    // }
 
-   }
+  }
 
   login(email: string, password: string): void {
     // this.user = {
@@ -42,15 +42,23 @@ export class UserService {
 
   }
 
-  register(data: { username: string; email: string; tel: string, password: string}) {
-    return this.http.post<IUser>(`${apiURL}/register`, data, { withCredentials: true}).pipe(
-      tap((user)=> this.user = user)
+  register(data: { username: string; email: string; tel: string, password: string }) {
+    return this.http.post<IUser>(`${apiURL}/register`, data, { withCredentials: true }).pipe(
+      tap((user) => this.user = user)
     );
   }
 
-  logout(): void {
+  getProfileInfo(){
+    return this.http.get<IUser>(`${apiURL}/users/profile`, { withCredentials: true}).pipe(
+      tap((user)=> this.user = user)
+    )
+  }
+
+  logout() {
     // this.user = undefined;
     // this.localStorage.removeItem('<USER>');
-
+    return this.http.post<IUser>(`${apiURL}/logout`, {}, {withCredentials: true}).pipe(
+      tap(()=> this.user = null)
+    )
   }
 }

@@ -9,7 +9,7 @@ import { IUser} from '../../shared/interfaces/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  user: IUser | undefined;
+  user: IUser |null| undefined;
 
 
   constructor(private userService: UserService) {
