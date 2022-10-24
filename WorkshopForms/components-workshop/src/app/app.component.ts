@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ContentService } from './content.service';
-import { IPost} from './shared/interfaces';
 import { UserService } from './user/user.service';
 
 @Component({
@@ -10,14 +8,12 @@ import { UserService } from './user/user.service';
 })
 export class AppComponent {
   title="components-workshop";
-  // posts: IPost[] | undefined;
 
   get isAuthenticating(): boolean{
     return this.userService.user === undefined;
   }
 
   constructor(
-    // private contentService: ContentService,
     private userService: UserService
     ) {
       this.userService.getProfileInfo().subscribe({
@@ -25,12 +21,5 @@ export class AppComponent {
           this.userService.user = null;
         }
       })
-    // this.fetchPosts();
   }
-
-  // fetchPosts() : void {
-  //   this.posts = undefined;
-  //   this.contentService.loadPosts(5).subscribe(posts => this.posts = posts);
-
-  // }
 }
