@@ -6,14 +6,18 @@ import { AnyRecord } from 'dns';
 })
 export class GetPropPipe implements PipeTransform {
 
-  transform(value: Record<string | number, any> | any[], propName: string | number): any {
+  transform(value: Record<string | number, any> | any[],path: (string |number)[]): any {
     if(
       value === null ||
-      typeof value !== 'object' ||
-      (Array.isArray(value)) && typeof propName !== 'number') {
-        return null;
-      }
-    return value[propName as any];
+      typeof value !== 'object'
+      ) { return null;}
+
+    let result = value;
+    for (const currentPath of path) {
+      result = result[currentPath as any];
+      if(!result) {return result;}
+    }
+    return result;
   }
 
 }

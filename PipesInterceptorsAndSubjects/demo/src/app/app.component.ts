@@ -12,6 +12,11 @@ import { Component } from '@angular/core';
 //   }
 export class AppComponent{
 
+  data= [{test:43}, {test: 9999}, {test: 2}, {test: 3}];
+
+  addItem() {
+    this.data.push({test: 4});
+  }
   //------------------------------
   // isActive = false;
 

@@ -1,5 +1,7 @@
 <app-header></app-header>
 <div id="content">
+  {{data |getProp : [0, 'test']}}
+  <button (click)="addItem()">Add Item</button>
   <router-outlet ></router-outlet>
 </div>
 
