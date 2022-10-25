@@ -1,9 +1,6 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserListComponent } from './user/user-list/user-list.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -11,8 +8,11 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/user-list'
-
+    redirectTo: '/about'
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: 'about',
@@ -32,11 +32,5 @@ const routes: Routes = [
   }
 ];
 
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule]
-// })
 export const AppRoutingModule = RouterModule.forRoot(routes);
-// export const AppRoutingModule = RouterModule.forRoot(routes, {enableTracing: true});
 
-// export class AppRoutingModule { }
