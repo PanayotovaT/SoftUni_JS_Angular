@@ -6,16 +6,16 @@ import { ParamsActivate } from '../core/guards/params.activate';
 const routes: Routes = [
 
   {
-    path: 'user-list',
+    path: 'list',
     component: UserListComponent
   },
   {
-    path:'user-detail/:id',
+    path:'detail/:id',
     component:UserDetailComponent,
     canActivate: [ParamsActivate],
     data: {
       paramsActivate: ['id'],
-      paramsActivateRedirectUrl:'/user-list'
+      paramsActivateRedirectUrl:'/user/list'
     }
 
   },
