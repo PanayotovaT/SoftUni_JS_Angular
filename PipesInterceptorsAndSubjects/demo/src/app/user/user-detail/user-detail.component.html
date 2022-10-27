@@ -1,7 +1,7 @@
 <div class="container">
   <div class="detail-user-info">
     <h2>User Information</h2>
-    <div *ngIf="user">
+    <div *ngIf="(user$ | async) as user">
       <p>Username: <span>{{user?.username}}</span></p>
       <p>Email: <span>{{user.email}}</span></p>
       <p>Phone: <span>{{user.phone}}</span></p>
@@ -10,7 +10,7 @@
       <p>Website: <span>{{user.website}}</span></p>
       <button [routerLink]="['/user-detail', user.id +1]">Next</button>
     </div>
-    <app-loader *ngIf="!user"></app-loader>
+    <app-loader *ngIf="!(user$ | async)"></app-loader>
   </div>
-  <button type="button" routerLink="/user-list">Back to user list</button>
+  <button type="button" routerLink="/user/list">Back to user list</button>
 </div>

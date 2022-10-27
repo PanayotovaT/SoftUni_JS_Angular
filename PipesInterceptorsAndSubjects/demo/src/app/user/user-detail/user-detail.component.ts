@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
-import { IUser } from 'src/app/interfaces/user';
+
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,31 +8,17 @@ import { UserService } from '../user.service';
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent {
 
-  user: IUser | undefined
+  user$ = this.userService.user$;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    activatedRoute: ActivatedRoute,
     private userService: UserService
-  ) { }
+  ) {
+    activatedRoute.params
+      .subscribe(({id })=> this.userService.loadUser(id))
 
-  ngOnInit(): void {
-    this.activatedRoute.params
-    .pipe(
-      tap(()=>{this.user = undefined}),
-      switchMap(({id}) =>this.userService.loadUser(id))
-      ).subscribe(user => this.user = user)
-
-    //------------------------
-    // this.userService.loadUser(this.activatedRoute.snapshot.params['id']).subscribe(user =>{
-    //   console.log(user);
-    //   return this.user = user;
-    // })
-    //----------------------------------------
-    // this.activatedRoute.params.subscribe(({ id }) => {
-    //   this.userService.loadUser(+id)
-    // });
-  }
+   }
 
 }
