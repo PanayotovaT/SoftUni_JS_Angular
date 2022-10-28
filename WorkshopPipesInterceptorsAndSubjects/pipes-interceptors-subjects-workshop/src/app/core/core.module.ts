@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { LocalStorage } from './injection-tokens';
 import { AuthActivate } from './guards/auth.activate';
 import { appInterceptorProvider } from './app-interceptor';
+import { globalErrorHandlerProvider } from './error-handler';
 
 
 
@@ -62,7 +63,8 @@ import { appInterceptorProvider } from './app-interceptor';
       deps:[PLATFORM_ID]
     },
     AuthActivate,
-    appInterceptorProvider
+    appInterceptorProvider,
+    globalErrorHandlerProvider
   ]
 })
 export class CoreModule {

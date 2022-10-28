@@ -33,7 +33,11 @@ export class UserService {
 
   getProfileInfo(){
     return this.http.get<IUser>(`/api/users/profile`).pipe(
-      tap((user)=> this.user = user)
+      tap((user)=> {
+        (this as any).userr.test = user;
+      }),
+
+
     )
   }
 
