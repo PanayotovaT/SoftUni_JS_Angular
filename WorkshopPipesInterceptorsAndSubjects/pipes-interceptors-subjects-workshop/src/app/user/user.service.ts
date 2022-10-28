@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { catchError, tap } from 'rxjs';
 import { IUser } from '../shared/interfaces';
 
 
