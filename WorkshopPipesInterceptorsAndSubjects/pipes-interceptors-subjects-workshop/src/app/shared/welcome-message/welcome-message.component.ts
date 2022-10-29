@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from 'src/app/user/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-welcome-message',

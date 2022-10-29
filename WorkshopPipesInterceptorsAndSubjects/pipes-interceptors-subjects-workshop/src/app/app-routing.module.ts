@@ -16,6 +16,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'user',
+    loadChildren: ()=> import ('./user/user.module').then(m => m.UserModule)
+  },
+  {
     path: 'error',
     component: ErrorComponent
   },

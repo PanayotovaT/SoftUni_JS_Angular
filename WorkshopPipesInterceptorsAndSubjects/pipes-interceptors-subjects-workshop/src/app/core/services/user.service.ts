@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs';
-import { IUser } from '../shared/interfaces';
+import { IUser } from '../../shared/interfaces';
 
 
 @Injectable({
@@ -34,7 +34,7 @@ export class UserService {
   getProfileInfo(){
     return this.http.get<IUser>(`/api/users/profile`).pipe(
       tap((user)=> {
-        (this as any).userr.test = user;
+        this.user = user;
       }),
 
 

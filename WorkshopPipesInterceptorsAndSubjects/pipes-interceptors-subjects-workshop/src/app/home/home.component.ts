@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from '../user/user.service';
+import { UserService } from '../core/services/user.service';
 
 @Component({
   selector: 'app-home',
