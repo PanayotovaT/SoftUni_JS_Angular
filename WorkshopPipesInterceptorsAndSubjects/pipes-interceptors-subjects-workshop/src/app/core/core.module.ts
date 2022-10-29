@@ -8,7 +8,8 @@ import { LocalStorage } from './injection-tokens';
 import { AuthActivate } from './guards/auth.activate';
 import { appInterceptorProvider } from './app-interceptor';
 import { globalErrorHandlerProvider } from './error-handler';
-import { UserModule } from '../user/user.module';
+import { ContentService } from './services/content.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -66,7 +67,9 @@ import { UserModule } from '../user/user.module';
     AuthActivate,
     appInterceptorProvider,
     globalErrorHandlerProvider,
-    UserModule
+    UserService,
+    ContentService
+
   ]
 })
 export class CoreModule {
