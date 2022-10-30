@@ -11,6 +11,7 @@ export class ErrorComponent {
   errorMessage: string;
   constructor(activatedRoute: ActivatedRoute) {
     this.errorMessage = activatedRoute.snapshot.queryParams['error'];
+    console.log(this.errorMessage);
   }
 
 

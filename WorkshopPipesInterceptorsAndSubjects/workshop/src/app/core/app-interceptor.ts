@@ -1,8 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable, Provider } from '@angular/core';
 import { Router } from '@angular/router';
-import { truncate } from 'fs';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl;
@@ -10,7 +9,9 @@ const API_URL = environment.apiUrl;
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router
+    ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let reqStream$ = next.handle(req);
@@ -23,8 +24,8 @@ export class AppInterceptor implements HttpInterceptor {
     }
     return reqStream$.pipe(
       catchError(err => {
-        this.router.navigate(['/error', { queryParams: {error: err.message}}])
-        return [err];
+        this.router.navigate(['/error'], { queryParams: {error: err.message}})
+        return throwError(()=> new Error(err));
       })
     );
   }
