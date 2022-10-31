@@ -13,7 +13,7 @@ export class TimeDiffPipe implements PipeTransform {
     const msPerHour = msPerMinute * 60;
     const msPerDay = msPerHour * 24;
     const msPerMonth = msPerDay * 30;
-    const msPerYear = msPerMonth * 365;
+    const msPerYear = msPerMonth * 12;
 
     const valueDate = new Date(value);
     const currentDate = new Date();
