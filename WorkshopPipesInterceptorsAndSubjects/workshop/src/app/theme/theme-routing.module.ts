@@ -18,11 +18,11 @@ const routes: Routes = [
   {
     path:'add',
     component: NewThemeComponent,
-    // canActivate: [AuthActivate],
-    // data: {
-    //   authenticationRequired: true,
-    //   authenticationFailureRedirectUrl: '/user/login'
-    // }
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/user/login'
+    }
   }
 ];
 

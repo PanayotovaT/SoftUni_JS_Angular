@@ -19,7 +19,7 @@ export class ProfileComponent {
   constructor(
     private userService: UserService) {
       this.userService.getProfileInfo().subscribe(()=>{
-        this.isLoading = false
+        this.isLoading = false;
       })
      }
 

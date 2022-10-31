@@ -22,7 +22,7 @@ export class NewThemeComponent {
         this.router.navigate(['/theme']);
       },
       error: (err) => {
-        console.log(err.message);
+        console.log(err);
       }
     })
   }

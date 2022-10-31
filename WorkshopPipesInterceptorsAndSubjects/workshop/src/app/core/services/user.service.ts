@@ -31,7 +31,11 @@ export class UserService {
 
   getProfileInfo(){
     return this.http.get<IUser>(`/api/users/profile`).pipe(
-      tap((user)=> this.user = user)
+      tap((user)=> {
+        this.user = user;
+        console.log(user);
+        console.log(this.user);
+      })
       //written for test purposes
       // tap((user)=>{
       //   (this as any).userr.test = user

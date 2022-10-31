@@ -9,7 +9,7 @@ router.get('/', themeController.getThemes);
 router.post('/', auth(), themeController.createTheme);
 
 router.get('/:themeId', themeController.getTheme);
-router.post('', auth(), postController.createPost);
+router.post('/', auth(), postController.createPost);
 router.put('/:themeId', auth(), themeController.subscribe);
 router.put('/:themeId/posts/:postId', auth(), postController.editPost);
 router.delete('/:themeId/posts/:postId', auth(), postController.deletePost);
