@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomValidatorDirective } from './custom-validator.directive';
-import { ShortenPipe } from './shorten.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { TimeDiffPipe } from './pipes/time-diff.pipe';
 
 
 
@@ -12,7 +13,8 @@ import { ShortenPipe } from './shorten.pipe';
   declarations: [
     WelcomeMessageComponent,
     CustomValidatorDirective,
-    ShortenPipe
+    ShortenPipe,
+    TimeDiffPipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ShortenPipe } from './shorten.pipe';
   exports: [
     WelcomeMessageComponent,
     CustomValidatorDirective,
-    ShortenPipe
+    ShortenPipe,
+    TimeDiffPipe
   ]
 
 })
