@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/user/user.service';
-import { ContentService } from '../../content.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { ContentService } from '../../core/services/content.service';
 import { IPost, ITheme } from '../../shared/interfaces';
 
 @Component({

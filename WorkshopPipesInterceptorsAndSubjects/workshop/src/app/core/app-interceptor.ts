@@ -1,7 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable, Provider } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl;
@@ -23,7 +24,7 @@ export class AppInterceptor implements HttpInterceptor {
       }));
     }
     return reqStream$.pipe(
-      catchError(err => {
+      catchError((err) => {
         this.router.navigate(['/error'], { queryParams: {error: err.message}})
         return throwError(()=> new Error(err));
       })

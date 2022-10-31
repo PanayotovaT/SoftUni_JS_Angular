@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from 'src/app/user/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-welcome-message',
@@ -16,7 +17,10 @@ export class WelcomeMessageComponent  {
   get isLogged(): boolean {
    return this.userService.isLogged;
   }
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+    ) { }
 
 
 }

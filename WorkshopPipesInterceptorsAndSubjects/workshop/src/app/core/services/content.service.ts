@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPost, ITheme } from './shared/interfaces';
+import { IPost, ITheme } from '../../shared/interfaces';
 
 @Injectable()
-
 export class ContentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
   loadThemes() {
     return this.http.get<ITheme[]>(`/api/themes`);

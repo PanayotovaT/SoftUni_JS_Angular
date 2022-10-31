@@ -11,12 +11,12 @@
         <div class="subscribers">
           <p>Subscribers: <span>{{theme.subscribers.length}}</span></p>
           <!-- <button *ngIf="isLogged" class="subscribe">Subscribe</button> -->
-                  <!-- <button class="unsubscribe">Unsubscribe</button> -->
+          <!-- <button class="unsubscribe">Unsubscribe</button> -->
         </div>
       </div>
     </div>
     <!-- comment  -->
-    <div class="comment" *ngFor="let post of theme!.posts">
+    <div class="comment" *ngFor="let post of theme!.posts!">
       <header class="header">
         <p><span>{{post?.userId?.username}}</span> posted on <time>{{post?.created_at}}</time></p>
       </header>
@@ -24,9 +24,9 @@
         <div class="userdetails">
           <img src="/assets/profile.png" alt="avatar">
         </div>
-<div>
-  <p>{{post?.text}}</p>
-</div>
+        <div>
+          <p>{{post?.text}}</p>
+        </div>
       </div>
       <div class="footer">
         <i class="fas fa-thumbs-up"></i>
@@ -36,7 +36,7 @@
     </div>
 
   </div>
+  <div class="theme-content" *ngIf="!theme">Loading...</div>
 
 
 </div>
-<div class="theme-content" *ngIf="!theme">Loading...</div>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { IUser} from '../../shared/interfaces/user';
+import { Component } from '@angular/core';
+import { UserService } from '../../core/services/user.service';
 import { NgForm } from '@angular/forms';
 
 
@@ -11,13 +10,18 @@ import { NgForm } from '@angular/forms';
 })
 export class ProfileComponent {
   inUpdateMode = false;
+  isLoading: boolean = true;
 
   get user(){
     return this.userService.user;
   }
 
   constructor(
-    private userService: UserService) { }
+    private userService: UserService) {
+      this.userService.getProfileInfo().subscribe(()=>{
+        this.isLoading = false
+      })
+     }
 
    updateProfileForm(form: NgForm): void{
      if(form.invalid){ return; }
