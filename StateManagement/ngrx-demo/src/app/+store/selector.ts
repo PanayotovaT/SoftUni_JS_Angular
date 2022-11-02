@@ -12,3 +12,8 @@ export const selectGlobalValue = createSelector(
   selectGlobal,
   state => state.value
 )
+
+export const selectGlobalUsers = createSelector(
+  selectGlobal,
+  state=> state.users
+)

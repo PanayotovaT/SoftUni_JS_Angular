@@ -9,3 +9,17 @@
 </div>
 <input type="text" #valueInput>
 <button (click)="setValue(valueInput)">Value</button>
+<br/>
+
+<button (click)="laodUsers()">Load users</button>
+
+<div *ngIf="(users$ | async) as users">
+  <ul *ngIf="users.length > 0">
+    <li *ngFor="let user of users" >{{user.email}}</li>
+  </ul>
+  <div *ngIf="users.length==0">No users in the database</div>
+
+</div>
+<div *ngIf="(isLoadingUsers$ | async)">
+Loading...
+</div>
