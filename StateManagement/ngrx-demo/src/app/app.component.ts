@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { increment, setValue } from './+store/actions';
+import { incrementCounter, setValue } from './+store/actions';
 import { selectGlobalCounter, selectGlobalValue } from './+store/selector';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private store: Store<any>){}
 
   incrementCounter(): void{
-    this.store.dispatch(increment())
+    this.store.dispatch(incrementCounter())
   }
 
   setValue(valueInput: HTMLInputElement) {

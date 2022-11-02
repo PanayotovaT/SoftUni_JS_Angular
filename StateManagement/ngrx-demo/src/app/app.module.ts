@@ -8,6 +8,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 // import { environment } from '../environments/environment';
 import { reducers } from './+store';
+import { EffectsModule } from '@ngrx/effects';
+import { GlobalEffects } from './+store/effects';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,9 @@ import { reducers } from './+store';
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({}),
+    EffectsModule.forRoot([
+      GlobalEffects
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
