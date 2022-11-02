@@ -28,3 +28,11 @@ export const loadUsersFailure = createAction(
 export const loadUsersCancel = createAction(
   `${namespace} load users cancel`,
 );
+
+export const clearGlobalState = createAction(
+  `${namespace} clear global state`
+);
+
+export const clearAppState = createAction(
+  `${namespace} clear app state`
+);

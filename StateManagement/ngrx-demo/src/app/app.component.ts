@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { map, mapTo, merge, of } from 'rxjs';
-import { incrementCounter, loadUsers, loadUsersFailure, loadUsersSuccess, setValue } from './+store/actions';
+import { clearAppState, incrementCounter, loadUsers, loadUsersFailure, loadUsersSuccess, setValue } from './+store/actions';
 import { selectGlobalCounter, selectGlobalUsers, selectGlobalValue } from './+store/selector';
 
 @Component({
@@ -39,5 +39,9 @@ export class AppComponent {
 
   laodUsers(): void {
     this.store.dispatch(loadUsers())
+  }
+
+  resetState(): void {
+    this.store.dispatch(clearAppState());
   }
 }
