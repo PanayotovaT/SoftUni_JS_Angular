@@ -11,6 +11,7 @@ import { reducers } from './+store';
 import { EffectsModule } from '@ngrx/effects';
 import { GlobalEffects } from './+store/effects';
 import { HttpClientModule} from '@angular/common/http'
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule} from '@angular/common/http'
     EffectsModule.forRoot([
       GlobalEffects
     ]),
-    HttpClientModule
+    HttpClientModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

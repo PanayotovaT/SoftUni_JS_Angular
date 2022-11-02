@@ -13,7 +13,7 @@
 
 <button (click)="laodUsers()">Load users</button>
 
-<div *ngIf="(users$ | async) as users">
+<div *ngIf="!(isLoadingUsers$ | async) && (users$ | async) as users">
   <ul *ngIf="users.length > 0">
     <li *ngFor="let user of users" >{{user.email}}</li>
   </ul>
