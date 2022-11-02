@@ -14,3 +14,17 @@ export const setValue = createAction(
 export const loadUsers = createAction(
   `${namespace} load users`
 );
+
+export const loadUsersSuccess = createAction(
+  `${namespace} load users success`,
+  props<{users: any[]}>()
+);
+
+export const loadUsersFailure = createAction(
+  `${namespace} load users failure`,
+  props<{error: Error}>()
+);
+
+export const loadUsersCancel = createAction(
+  `${namespace} load users cancel`,
+);
