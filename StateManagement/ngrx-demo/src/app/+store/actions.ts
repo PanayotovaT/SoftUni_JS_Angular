@@ -10,3 +10,7 @@ export const setValue = createAction(
   `${namespace} set value`,
   props<{ value: string }>()
 );
+
+export const loadUsers = createAction(
+  `${namespace} load users`
+);
