@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdsComponent } from './ads/ads.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AdsComponent
+  ],
   imports: [
     CommonModule
   ]
