@@ -29,3 +29,64 @@ body {
     position: relative;
     min-height: 100vh;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d6d72;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4d6d72;
+}
+
+.error-box {
+  position: fixed;
+  display: block;
+  z-index: 11111;
+  left: 2%;
+  top: 15%;
+  margin-top: 1em;
+  text-align: center;
+  border-radius: 0.5rem;
+  color: white;
+  height: auto;
+  width: 340px;
+  font-style: italic;
+  background-color: #3c2064;
+  box-shadow: 0px 0px 8px 7px white;
+}
+
+.error-box>p {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Barlow', sans-serif;
+  padding: 14px;
+  height: auto;
+}
+
+@keyframes cssAnimation {
+  to {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  to {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      padding: 0;
+  }
+}
