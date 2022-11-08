@@ -12,6 +12,10 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    RegisterComponent,
+    LoginComponent,
   ]
 })
 export class UserModule { }

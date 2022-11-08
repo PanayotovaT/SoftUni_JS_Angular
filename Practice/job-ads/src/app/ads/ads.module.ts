@@ -23,6 +23,8 @@ import { SearchAdComponent } from './search-ad/search-ad.component';
     AdsComponent,
     AdDetailsComponent,
     CreateAdComponent,
+    UpdateAdComponent,
+    SearchAdComponent,
   ]
 })
 export class AdsModule { }
