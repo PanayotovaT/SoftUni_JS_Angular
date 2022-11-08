@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AdsComponent } from './ads/ads.component';
 import { AdDetailsComponent } from './ad-details/ad-details.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
+import { UpdateAdComponent } from './update-ad/update-ad.component';
+import { SearchAdComponent } from './search-ad/search-ad.component';
 
 
 
@@ -10,7 +12,9 @@ import { CreateAdComponent } from './create-ad/create-ad.component';
   declarations: [
     AdsComponent,
     AdDetailsComponent,
-    CreateAdComponent
+    CreateAdComponent,
+    UpdateAdComponent,
+    SearchAdComponent
   ],
   imports: [
     CommonModule
@@ -18,6 +22,7 @@ import { CreateAdComponent } from './create-ad/create-ad.component';
   exports: [
     AdsComponent,
     AdDetailsComponent,
+    CreateAdComponent,
   ]
 })
 export class AdsModule { }
