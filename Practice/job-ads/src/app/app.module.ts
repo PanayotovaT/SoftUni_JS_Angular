@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdsService } from './services/ads.service';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 
@@ -23,7 +24,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     AdsModule,
   ],
-  providers: [],
+  providers: [AdsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
