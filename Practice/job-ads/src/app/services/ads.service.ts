@@ -15,4 +15,8 @@ export class AdsService {
     return this.http.get <iAd[]>(`${API_URL}/jsonstore/ads`);
   }
 
+  loadOneById(id: string) {
+    return this.http.get<iAd>(`${API_URL}/jsonstore/ads/${id}`)
+  }
+
 }
