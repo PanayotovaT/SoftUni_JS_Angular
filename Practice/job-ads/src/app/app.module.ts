@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AdsService } from './services/ads.service';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserModule } from './user/user.module';
     SharedModule,
     UserModule,
     AdsModule,
+    HttpClientModule
   ],
   providers: [AdsService],
   bootstrap: [AppComponent]
