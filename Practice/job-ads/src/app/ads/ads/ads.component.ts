@@ -16,9 +16,11 @@ export class AdsComponent {
    }
 
   loadAds(): void {
-    console.log(this.ads)
     this.ads = undefined;
-    this.adService.loadAllAds().subscribe(ads => this.ads = ads);
+    this.adService.loadAllAds().subscribe(ads => {
+      this.ads = Object.values(ads);
+      console.log(this.ads)
+    });
   }
 
 }

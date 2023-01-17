@@ -21,7 +21,7 @@ const routes: Routes = [
     component: AdsComponent
   },
   {
-    path: 'ads/:id',
+    path: 'details/:id',
     component: AdDetailsComponent
   },
   {

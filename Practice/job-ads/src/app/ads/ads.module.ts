@@ -5,6 +5,7 @@ import { AdDetailsComponent } from './ad-details/ad-details.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { UpdateAdComponent } from './update-ad/update-ad.component';
 import { SearchAdComponent } from './search-ad/search-ad.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { SearchAdComponent } from './search-ad/search-ad.component';
     SearchAdComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     AdsComponent,
