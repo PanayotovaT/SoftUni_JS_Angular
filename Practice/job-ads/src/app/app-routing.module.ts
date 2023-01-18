@@ -37,7 +37,7 @@ const routes: Routes = [
     component: CreateAdComponent
   },
   {
-    path: 'update',
+    path: 'update/:id',
     component: UpdateAdComponent
   },
   {
