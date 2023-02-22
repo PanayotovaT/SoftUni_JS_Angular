@@ -1,37 +1,43 @@
-
 <header class="header">
   <article class="header-logo">
-      <!-- Do not forget to change the path to the image -->
-      <img src="./assets/img/logo.png">
+    <!-- Do not forget to change the path to the image -->
+    <img src="./assets/img/logo.png">
   </article>
   <nav class="header-nav">
-      <ul class="header-nav-list">
+    <ul class="header-nav-list">
 
-          <li class="header-nav-list-item active">
-              <a routerLink="/" class="header-nav-list-item-link active" >Home Page</a>
-          </li>
+      <li class="header-nav-list-item active">
+        <a routerLink="/" class="header-nav-list-item-link active">Home Page</a>
+      </li>
 
-          <li class="header-nav-list-item" routerLinkActive="active-link">
-              <a routerLink="/ads" class="header-nav-list-item-link" >All ads</a>
-          </li>
-          <!-- Logged users -->
-          <li class="header-nav-list-item" routerLinkActive="active-link">
-              <a routerLink="/create" class="header-nav-list-item-link" >Create Ad</a>
-          </li>
-          <li class="header-nav-list-item" routerLinkActive="active-link">
-              <a routerLink="/search" class="header-nav-list-item-link" >Search</a>
-          </li>
-          <li class="header-nav-list-item">
-              <a routerLink="/" class="header-nav-list-item-link">Logout</a>
-          </li>
+      <li class="header-nav-list-item" routerLinkActive="active-link">
+        <a routerLink="/ads" class="header-nav-list-item-link">All ads</a>
+      </li>
+      <!-- Logged users -->
+      <ng-container *ngIf="isLogged">
+        <li class="header-nav-list-item" routerLinkActive="active-link">
+          <a routerLink="/create" class="header-nav-list-item-link">Create Ad</a>
+        </li>
+        <li class="header-nav-list-item" routerLinkActive="active-link">
+          <a routerLink="/search" class="header-nav-list-item-link">Search</a>
+        </li>
+        <li class="header-nav-list-item">
+          <a routerLink="/" class="header-nav-list-item-link">Logout</a>
+        </li>
 
-          <!-- Guest users -->
-          <li class="header-nav-list-item" routerLinkActive="active-link">
-              <a routerLink="/register" class="header-nav-list-item-link" >Register</a>
-          </li>
-          <li class="header-nav-list-item" routerLinkActive="active-link">
-              <a routerLink="/login" class="header-nav-list-item-link" >Login</a>
-          </li>
-      </ul>
+      </ng-container>
+
+      <!-- Guest users -->
+
+      <ng-container *ngIf="!isLogged">
+        <li class="header-nav-list-item" routerLinkActive="active-link">
+          <a routerLink="/register" class="header-nav-list-item-link">Register</a>
+        </li>
+        <li class="header-nav-list-item" routerLinkActive="active-link">
+          <a routerLink="/login" class="header-nav-list-item-link">Login</a>
+        </li>
+      </ng-container>
+
+    </ul>
   </nav>
 </header>
