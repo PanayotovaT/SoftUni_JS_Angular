@@ -19,4 +19,7 @@ export class AdsService {
     return this.http.get<iAd>(`${API_URL}/jsonstore/ads/${id}`)
   }
 
+  loadSearchedItems(query: string) {
+    return this.http.get <iAd[]>(`${API_URL}/jsonstore/ads?where=headline%3D%22${query}%22`);
+  }
 }
