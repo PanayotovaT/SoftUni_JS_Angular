@@ -9,5 +9,5 @@ import { User } from './user';
 export class AppComponent {
   languages: string[] = ['JavaScript', 'Angular', 'React'];
 
-  userModel = new User('Alex', 'Bg', 'Sofia', '1000', 'JavaScript', 'morning', 'alex@gmail.com', true);
+  userModel = new User('', 'Bg', 'Sofia', '1000', 'JavaScript', 'evening', 'alex@gmail.com', true);
 }

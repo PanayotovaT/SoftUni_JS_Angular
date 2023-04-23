@@ -1,12 +1,13 @@
 <h1>Registration Form</h1>
-{{registerForm.value | json}}
+<!-- {{registerForm.value | json}}
 <hr>
-{{userModel | json}}
+{{userModel | json}} -->
 <form #registerForm="ngForm">
   <div class="form-group">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control" [ngModel]="userModel.username" name="username">
+    <input type="text" #username="ngModel" [class.is-invalid]="username.invalid && username.touched &&username.dirty" class="form-control" [ngModel]="userModel.username" name="username" required>
   </div>
+  {{username.untouched}}
   <div class="form-group">
     <label class="form-label">Password</label>
     <input type="password" class="form-control" ngModel name="password">
@@ -37,18 +38,19 @@
     </select>
   </div>
   <div class="form-group">
+   <label lass="form-label">Select a preferred time</label>
     <div class="form-check">
-      <input type="text" class="form-check-input" type="radio" name="timePreference" value="morning" [ngModel]="userModel.timePreference">
+      <input type="text" class="form-check-input" type="radio" name="timePreference" value="morning" [(ngModel)]="userModel.timePreference" >
       <label class="form-check-label">Morning (9am-12am)</label>
     </div>
     <div class="form-check">
-      <input type="text" class="form-check-input" type="radio" name="timePreference"  value="evening" [ngModel]="userModel.timePreference">
+      <input type="text" class="form-check-input" type="radio" name="timePreference" value="evening" [(ngModel)]="userModel.timePreference" >
       <label class="form-check-label">Evening (13pm-17pm)</label>
     </div>
   </div>
   <div class="form-group">
     <label class="form-label">Email</label>
-    <input type="text" class="form-control" [ngModel]="userModel.email" name="email">
+    <input #email="ngModel" type="text" [class.is-invalid]="email.invalid" class="form-control" required pattern="^([a-zA-Z0-9]){3,}@(gmail|test).(com|bg)$" [ngModel]="userModel.email" name="email">
   </div>
   <div class="form-group">
     <div class="form-check">
