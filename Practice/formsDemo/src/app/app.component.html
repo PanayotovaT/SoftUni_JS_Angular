@@ -5,7 +5,11 @@
 <form #registerForm="ngForm">
   <div class="form-group">
     <label class="form-label">Username</label>
-    <input type="text" #username="ngModel" [class.is-invalid]="username.invalid && username.touched &&username.dirty" class="form-control" [ngModel]="userModel.username" name="username" required>
+    <input type="text" #username="ngModel" [class.is-invalid]="username.invalid && username.touched &&username.dirty" class="form-control" [ngModel]="userModel.username" name="username" required minlength="4">
+    <div *ngIf="username.errors && (username.invalid ||username.touched || username.dirty)">
+      <small class="text-danger" *ngIf="username.errors?.['required'] && username.touched && username.dirty">Username is required</small>
+      <small class="text-danger" *ngIf="username.errors?.['minlength'] && username.touched && username.dirty">Username must be at least 4 characters</small>
+    </div>
   </div>
   {{username.untouched}}
   <div class="form-group">
@@ -50,7 +54,11 @@
   </div>
   <div class="form-group">
     <label class="form-label">Email</label>
-    <input #email="ngModel" type="text" [class.is-invalid]="email.invalid" class="form-control" required pattern="^([a-zA-Z0-9]){3,}@(gmail|test).(com|bg)$" [ngModel]="userModel.email" name="email">
+    <input #email="ngModel" type="text" [class.is-invalid]="email.invalid && email.touched && email.dirty" class="form-control" required pattern="^([a-zA-Z0-9]){3,}@(gmail|test).(com|bg)$" [ngModel]="userModel.email" name="email">
+  <div *ngIf="email.errors &&(email.invalid || email.touched || email.dirty)">
+      <small class="text-danger" *ngIf="email.errors?.['required'] && email.touched && email.dirty" >Email is a required field</small>
+      <small class="text-danger" *ngIf="email.errors?.['pattern'] && email.touched && email.dirty">Email should be in the correct format</small>
+  </div>
   </div>
   <div class="form-group">
     <div class="form-check">
