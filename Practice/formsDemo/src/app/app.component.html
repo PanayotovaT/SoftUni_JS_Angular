@@ -35,11 +35,11 @@
     </div>
   </div>
   <div class="form-group ">
-    <select class="form-select" [ngModel]="userModel.language" name="select">
-      <option selected>Please select a language</option>
-      <option *ngFor="let language of languages">{{language}}</option>
+    <select #language="ngModel" (blur)="validateLanguage(language.value)" (change)="validateLanguage(language.value)"[class.is-invalid]="languageHasError && language.touched" class="form-select" [ngModel]="userModel.language" name="select">
+      <option [value]="language" *ngFor="let language of languages">{{language}}</option>
 
     </select>
+    <small class="text-danger" [class.d-none]="!languageHasError || language.untouched">Please select a language</small>
   </div>
   <div class="form-group">
    <label lass="form-label">Select a preferred time</label>
