@@ -36,7 +36,8 @@
     </div>
     <div class="form-group">
       <label class="form-label">Post Code</label>
-      <input type="text" class="form-control" [ngModel]="userModel.postCode" name="postCode" required>
+      <input type="text" #postCode="ngModel" class="form-control" [ngModel]="userModel.postCode" name="postCode" required>
+      <small class="text-danger" *ngIf="postCode.errors?.['required'] && postCode.touched">Post code is a required field</small>
     </div>
   </div>
   <div class="form-group ">
