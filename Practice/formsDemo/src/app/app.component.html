@@ -26,7 +26,8 @@
   <div ngModelGroup="address">
     <div class="form-group">
       <label class="form-label">Country</label>
-      <input type="text" class="form-control" [ngModel]="userModel.country" name="country" required>
+      <input type="text" #country="ngModel" class="form-control" [ngModel]="userModel.country" name="country" required>
+      <small class="text-danger" *ngIf="country.errors?.['required']">Country is a required field</small>
     </div>
     <div class="form-group">
       <label class="form-label">City</label>
