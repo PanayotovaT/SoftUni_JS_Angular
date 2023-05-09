@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EnrollmentService } from './enrollment.service';
 import { User } from './user';
 
 @Component({
@@ -12,7 +13,9 @@ export class AppComponent {
 
   userModel = new User('', 'Bg', 'Sofia', '1000', 'Javascript', 'evening', 'alex@gmail.com', true);
 
-
+  constructor(
+    private _enrollService: EnrollmentService
+  ){}
 
   validateLanguage(value: string): void {
     if (value === 'Select a Language'){
@@ -23,10 +26,12 @@ export class AppComponent {
     }
   }
 
-  onSubmit(registerForm: {}) {
-    console.log(this.userModel);
-    console.log(registerForm)
-
+  onSubmit(registerForm: User) {
+    console.log(registerForm);
+    this._enrollService.enroll(registerForm).subscribe(
+      data => { console.log('success', data)},
+      error => { console.log('Error', error)}
+    )
   }
 }
 
