@@ -20,7 +20,8 @@
   </div>
   <div class="form-group">
     <label class="form-label">Repeat Password</label>
-    <input type="password" class="form-control" ngModel name="repass" required>
+    <input type="password" #repass="ngModel" class="form-control" ngModel name="repass" required>
+    <small class="text-danger" *ngIf="repass.errors?.['required'] && repass.touched">Repeat Password is a required field</small>
   </div>
   <div ngModelGroup="address">
     <div class="form-group">
