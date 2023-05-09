@@ -31,7 +31,8 @@
     </div>
     <div class="form-group">
       <label class="form-label">City</label>
-      <input type="text" class="form-control" [ngModel]="userModel.city" name="city" required>
+      <input type="text" class="form-control" #city="ngModel" [ngModel]="userModel.city" name="city" required>
+      <small class="text-danger" *ngIf="city.errors?.['required'] && city.touched">Citry is a required field</small>
     </div>
     <div class="form-group">
       <label class="form-label">Post Code</label>
