@@ -15,24 +15,25 @@
   {{username.untouched}}
   <div class="form-group">
     <label class="form-label">Password</label>
-    <input type="password" class="form-control" ngModel name="password">
+    <input #password="ngModel" type="password" class="form-control" ngModel name="password" required>
+  <small class="text-danger" *ngIf="password.errors?.['required'] && password.touched">Password is a required field!</small>
   </div>
   <div class="form-group">
     <label class="form-label">Repeat Password</label>
-    <input type="password" class="form-control" ngModel name="repass">
+    <input type="password" class="form-control" ngModel name="repass" required>
   </div>
   <div ngModelGroup="address">
     <div class="form-group">
       <label class="form-label">Country</label>
-      <input type="text" class="form-control" [ngModel]="userModel.country" name="country">
+      <input type="text" class="form-control" [ngModel]="userModel.country" name="country" required>
     </div>
     <div class="form-group">
       <label class="form-label">City</label>
-      <input type="text" class="form-control" [ngModel]="userModel.city" name="city">
+      <input type="text" class="form-control" [ngModel]="userModel.city" name="city" required>
     </div>
     <div class="form-group">
       <label class="form-label">Post Code</label>
-      <input type="text" class="form-control" [ngModel]="userModel.postCode" name="postCode">
+      <input type="text" class="form-control" [ngModel]="userModel.postCode" name="postCode" required>
     </div>
   </div>
   <div class="form-group ">
