@@ -2,7 +2,7 @@
 <!-- {{registerForm.value | json}}
 <hr>
 {{userModel | json}} -->
-<form #registerForm="ngForm">
+<form #registerForm="ngForm" (submit)="onSubmit(registerForm.value)" novalidate>
   {{registerForm.form.valid}}
   <div class="form-group">
     <label class="form-label">Username</label>
@@ -77,5 +77,5 @@
     </div>
   </div>
 
-  <button type="button" [disabled]="registerForm.form.invalid || languageHasError" class="btn btn-primary">Register</button>
+  <button type="submit" [disabled]="registerForm.form.invalid || languageHasError" class="btn btn-primary">Register</button>
 </form>

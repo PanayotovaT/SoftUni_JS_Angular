@@ -23,4 +23,11 @@ export class AppComponent {
     }
   }
 
+  onSubmit(registerForm: {}) {
+    console.log(this.userModel);
+    console.log(registerForm)
+
+  }
 }
+
+
