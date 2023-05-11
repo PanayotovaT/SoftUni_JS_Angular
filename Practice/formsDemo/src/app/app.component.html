@@ -2,7 +2,7 @@
 <!-- {{registerForm.value | json}}
 <hr>
 {{userModel | json}} -->
-<form #registerForm="ngForm" (submit)="onSubmit(registerForm.value)" novalidate>
+<form #registerForm="ngForm" *ngIf="!submitted" (submit)="onSubmit(registerForm.value)" novalidate>
   {{registerForm.form.valid}}
   <div class="form-group">
     <label class="form-label">Username</label>

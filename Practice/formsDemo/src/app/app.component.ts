@@ -10,6 +10,7 @@ import { User } from './user';
 export class AppComponent {
   languages: string[] = ['Javascript','Angular', 'React'];
   languageHasError: boolean = true;
+  submitted: boolean = false;
 
   userModel = new User('', 'Bg', 'Sofia', '1000', 'Javascript', 'evening', 'alex@gmail.com', true);
 
@@ -28,6 +29,7 @@ export class AppComponent {
 
   onSubmit(registerForm: User) {
     console.log(registerForm);
+    this.submitted = true;
     this._enrollService.enroll(registerForm).subscribe(
       data => { console.log('success', data)},
       error => { console.log('Error', error)}
