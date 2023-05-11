@@ -11,6 +11,7 @@ export class AppComponent {
   languages: string[] = ['Javascript','Angular', 'React'];
   languageHasError: boolean = true;
   submitted: boolean = false;
+  errorMsg = '';
 
   userModel = new User('', 'Bg', 'Sofia', '1000', 'Javascript', 'evening', 'alex@gmail.com', true);
 
@@ -32,7 +33,7 @@ export class AppComponent {
     this.submitted = true;
     this._enrollService.enroll(registerForm).subscribe(
       data => { console.log('success', data)},
-      error => { console.log('Error', error)}
+      error => this.errorMsg = error.statusText
     )
   }
 }

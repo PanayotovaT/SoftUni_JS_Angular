@@ -2,6 +2,7 @@
 <!-- {{registerForm.value | json}}
 <hr>
 {{userModel | json}} -->
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
 <form #registerForm="ngForm" *ngIf="!submitted" (submit)="onSubmit(registerForm.value)" novalidate>
   {{registerForm.form.valid}}
   <div class="form-group">
