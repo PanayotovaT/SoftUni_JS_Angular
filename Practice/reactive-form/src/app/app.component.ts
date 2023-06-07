@@ -11,12 +11,25 @@ registrationForm =  new FormGroup({
   username: new FormControl('Alexander'),
   password: new FormControl(''),
   confirmPassword: new FormControl(''),
-  adress: new FormGroup({
+  address: new FormGroup({
     city: new FormControl(''),
     state: new FormControl(''),
     postalCode: new FormControl('')
   })
 
 });
+
+loadData(){
+this.registrationForm.setValue({
+  username: 'Sofia',
+  password: '123',
+  confirmPassword: '123',
+  address: {
+    city: 'Milan',
+    state: 'Italy',
+    postalCode: '123456'
+  }
+})
+}
 
 }
