@@ -3,8 +3,12 @@
   <form [formGroup]="registrationForm">
     <div class="form-group">
       <label>Username</label>
-      <input [class.is-invalid]="registrationForm.get('username')!.invalid && registrationForm.get('username')!.touched "formControlName="username" type="text" class="form-control">
-      <small [class.d-none]="registrationForm.get('username')?.valid || registrationForm.get('username')?.untouched" class="text-danger">Username field is required</small>
+      <input [class.is-invalid]="username!.invalid && username!.touched "formControlName="username" type="text" class="form-control">
+      <!-- <small [class.d-none]="username?.valid || username?.untouched" class="text-danger">Username field is required</small> -->
+      <div *ngIf="username?.invalid && username?.touched">
+        <small *ngIf="username?.errors?.['required']" class="text-danger">Username is required field</small>
+        <small *ngIf="username?.errors?.['minlength']" class="text-danger">Username must be at least 4 characters long</small>
+      </div>
     </div>
 
     <div class="form-group">

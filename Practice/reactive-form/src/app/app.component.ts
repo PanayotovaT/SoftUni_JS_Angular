@@ -8,12 +8,18 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent {
 
-constructor(private fb: FormBuilder){}
+  get username(){
+    return this.registrationForm.get('username');
+  }
+
+  constructor(private fb: FormBuilder) { }
+
+
   registrationForm = this.fb.group({
-    username: ['',Validators.required],
+    username: ['', [Validators.required, Validators.minLength(4)]],
     password: [''],
     confirmPassword: [''],
-    address:  this.fb.group({
+    address: this.fb.group({
       city: [''],
       state: [''],
       postalCode: ['']
@@ -22,7 +28,7 @@ constructor(private fb: FormBuilder){}
 
 
 
-//SETVALUE -need to provide all the values
+  //SETVALUE -need to provide all the values
   // loadData() {
   //   this.registrationForm.setValue({
   //     username: 'Sofia',
