@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidator } from './shared/password.validator';
 import { forbidenNameValidator } from './shared/username.validator';
 
@@ -8,25 +8,46 @@ import { forbidenNameValidator } from './shared/username.validator';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  registrationForm!: FormGroup;
 
   get username() {
     return this.registrationForm.get('username');
   }
 
+  get email(){
+    return this.registrationForm.get('email');
+  }
+
   constructor(private fb: FormBuilder) { }
 
+  ngOnInit(): void {
+    this.registrationForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(4), forbidenNameValidator(/^password$/)]],
+      email: [''],
+      subscribe: [false],
+      password: ['', [Validators.required] ],
+      confirmPassword: ['', [Validators.required] ],
+      address: this.fb.group({
+        city: [''],
+        state: [''],
+        postalCode: ['']
+      })
+    }, {validators: PasswordValidator});
 
-  registrationForm = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(4), forbidenNameValidator(/^password$/)]],
-    password: ['', [Validators.required] ],
-    confirmPassword: ['', [Validators.required] ],
-    address: this.fb.group({
-      city: [''],
-      state: [''],
-      postalCode: ['']
-    })
-  }, {validators: PasswordValidator})
+    this.registrationForm.get('subscribe')?.valueChanges
+      .subscribe(checkedValue => {
+        const email = this.registrationForm.get('email');
+        if(checkedValue) {
+          email?.setValidators(Validators.required);
+        } else {
+           email?.clearValidators();
+        }
+        email?.updateValueAndValidity();
+      })
+
+  }
+
 
 
 
