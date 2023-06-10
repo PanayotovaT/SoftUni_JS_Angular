@@ -3,25 +3,33 @@
   <form [formGroup]="registrationForm">
     <div class="form-group">
       <label>Username</label>
-      <input [class.is-invalid]="username!.invalid && username!.touched "formControlName="username" type="text" class="form-control">
+      <input [class.is-invalid]="username!.invalid && username!.touched " formControlName="username" type="text"
+        class="form-control">
       <!-- <small [class.d-none]="username?.valid || username?.untouched" class="text-danger">Username field is required</small> -->
       <div *ngIf="username?.invalid && username?.touched">
         <small *ngIf="username?.errors?.['required']" class="text-danger">Username is required field</small>
-        <small *ngIf="username?.errors?.['minlength']" class="text-danger">Username must be at least 4 characters long</small>
-        <small *ngIf="username?.errors?.['forbiddenName']" class="text-danger">{{username?.errors?.['forbiddenName'].value}} is not allowed. Please choose a different name</small>
+        <small *ngIf="username?.errors?.['minlength']" class="text-danger">Username must be at least 4 characters
+          long</small>
+        <small *ngIf="username?.errors?.['forbiddenName']"
+          class="text-danger">{{username?.errors?.['forbiddenName'].value}} is not allowed. Please choose a different
+          name</small>
       </div>
     </div>
 
     <div class="form-group">
       <label>Password</label>
-      <input formControlName="password" type="password" class="form-control">
+      <input [class.is-invalid]="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched"
+      formControlName="password" type="password" class="form-control">
+      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">Passwords don't match</small>
     </div>
     <div class="form-group">
       <label>Confirm Password</label>
-      <input formControlName="confirmPassword" type="password" class="form-control">
+      <input [class.is-invalid]="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched"
+      formControlName="confirmPassword" type="password" class="form-control">
     </div>
+
     <div formGroupName="address">
-      <div  class="form-group">
+      <div class="form-group">
         <label>City</label>
         <input formControlName="city" type="text" class="form-control">
       </div>
