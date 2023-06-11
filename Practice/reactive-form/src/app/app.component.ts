@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { PasswordValidator } from './shared/password.validator';
 import { forbidenNameValidator } from './shared/username.validator';
 
@@ -19,6 +19,14 @@ export class AppComponent implements OnInit {
     return this.registrationForm.get('email');
   }
 
+  get alternateEmails() {
+    return this.registrationForm.get('alternateEmails') as FormArray;
+  }
+
+  addAlternateEmail(){
+    this.alternateEmails.push(this.fb.control(''))
+  }
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -32,7 +40,8 @@ export class AppComponent implements OnInit {
         city: [''],
         state: [''],
         postalCode: ['']
-      })
+      }),
+      alternateEmails: this.fb.array([])
     }, {validators: PasswordValidator});
 
     this.registrationForm.get('subscribe')?.valueChanges

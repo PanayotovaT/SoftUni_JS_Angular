@@ -18,8 +18,14 @@
 
     <div class="form-group">
       <label>Email</label>
-      <input [class.is-invalid]="email?.invalid && email?.touched" type="email" class="form-control" formControlName="email">
-        <small class="text-danger" *ngIf="email?.errors?.['required'] && email?.touched">Please insert an email</small>
+      <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addAlternateEmail()">Add Email</button>
+      <input [class.is-invalid]="email?.invalid && email?.touched" type="email" class="form-control"
+        formControlName="email">
+      <small class="text-danger" *ngIf="email?.errors?.['required'] && email?.touched">Please insert an email</small>
+
+    <div formArrayName="alternateEmails" *ngFor="let email of alternateEmails.controls; let i=index;">
+        <input type="text" class="form-control my-1" [formControlName]="i">
+    </div>
     </div>
 
     <div class="form-check mb-3">
@@ -30,13 +36,14 @@
     <div class="form-group">
       <label>Password</label>
       <input [class.is-invalid]="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched"
-      formControlName="password" type="password" class="form-control">
+        formControlName="password" type="password" class="form-control">
       <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">Passwords don't match</small>
     </div>
     <div class="form-group">
       <label>Confirm Password</label>
-      <input [class.is-invalid]="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched"
-      formControlName="confirmPassword" type="password" class="form-control">
+      <input
+        [class.is-invalid]="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched"
+        formControlName="confirmPassword" type="password" class="form-control">
     </div>
 
     <div formGroupName="address">
