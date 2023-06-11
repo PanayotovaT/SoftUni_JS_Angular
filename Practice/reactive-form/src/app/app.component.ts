@@ -82,6 +82,10 @@ export class AppComponent implements OnInit {
       confirmPassword: '123',
     })
   }
+
+  onSubmit() {
+    console.log(this.registrationForm.value);
+  }
 }
 
 
